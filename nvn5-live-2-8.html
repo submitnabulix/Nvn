@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>NVN Music | Submit Your Song for a Lyric Video</title>
+<meta name="description" content="NVN Music, a brand of NVN Social Groups, produces lyric videos for artists. Submit your song, track the review and get a decision from our team within 3–5 days."/>
+<meta name="theme-color" content="#0b0b0d"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="NVN Music"/>
+<meta property="og:title" content="NVN Music | Submit Your Song for a Lyric Video"/>
+<meta property="og:description" content="Submit your song to NVN Music and reach 147K+ YouTube subscribers. Free to submit, with live status tracking."/>
+<meta name="robots" content="index,follow"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%23ff002e'/><stop offset='1' stop-color='%23ff0051'/></linearGradient></defs><rect width='32' height='32' rx='9' fill='url(%23g)'/><path d='M10 22V10l6 8 6-8v12' stroke='white' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>"/>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
+*,::before,::after{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb;--tw-translate-x:0;--tw-translate-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-ring-color:rgba(59,130,246,.5)}
+html{line-height:1.5;-webkit-text-size-adjust:100%;tab-size:4;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+body{margin:0;line-height:inherit}
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}
+blockquote,dl,dd,h1,h2,h3,h4,h5,h6,hr,figure,p,pre{margin:0}
+ol,ul{list-style:none;margin:0;padding:0}
+a{color:inherit;text-decoration:inherit}
+b,strong{font-weight:bolder}
+img,svg,video,canvas,audio,iframe,embed,object{display:block;vertical-align:middle}
+img,video{max-width:100%;height:auto}
+button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;font-weight:inherit;line-height:inherit;color:inherit;margin:0;padding:0}
+button,select{text-transform:none}
+button,[type=button],[type=reset],[type=submit]{-webkit-appearance:button;background-color:transparent;background-image:none;touch-action:manipulation}
+button,[role=button]{cursor:pointer}
+:disabled{cursor:default}
+textarea{resize:vertical}
+input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}
+[hidden]{display:none}
+@keyframes ping{75%,100%{transform:scale(2);opacity:0}}
+@keyframes pulse{50%{opacity:.5}}
+
+html{overflow-x:hidden}
+html.lock,html.lock body{overflow:hidden}
+body{background-color:#0b0b0d;color:#e5e7eb;font-family:'Inter',ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-tap-highlight-color:transparent;-webkit-font-smoothing:antialiased}
+@supports (overflow:clip){body{overflow-x:clip}}
+.bg-grain{background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 0);background-size:24px 24px}
+
+/* Ambient glow: one clipped fixed layer, no blur filters */
+.bg-fx{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:-1;contain:strict}
+.bg-fx i{position:absolute;display:block;border-radius:50%}
+.fx-r1{width:460px;height:460px;left:-140px;top:-120px;background:radial-gradient(circle,rgba(255,0,46,.15),rgba(255,0,81,.02) 60%,transparent 72%)}
+.fx-b1{width:520px;height:520px;right:-180px;top:30%;background:radial-gradient(circle,rgba(20,80,220,.12),rgba(10,40,120,.02) 60%,transparent 72%)}
+.fx-r2{width:460px;height:460px;left:8%;bottom:-160px;background:radial-gradient(circle,rgba(255,0,46,.10),transparent 70%)}
+.footer-glow{background:radial-gradient(circle,rgba(37,99,235,.14),transparent 68%)}
+
+/* Glass (blur only on the header; cards are plain translucent = fast scrolling) */
+.glass-panel{background:rgba(18,18,22,.78);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.08)}
+.glass-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);transition:background-color .2s,border-color .2s,box-shadow .2s}
+@media (hover:hover){.glass-card:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.15);box-shadow:0 10px 30px -10px rgba(0,0,0,.8),0 0 18px rgba(255,0,46,.12)}}
+
+.btn-brand{background:linear-gradient(135deg,#ff002e,#ff0051);position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 20px rgba(255,0,46,.35)}
+@media (hover:hover){.btn-brand:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(255,0,46,.5)}}
+.btn-brand:active{transform:translateY(1px)}
+.btn-brand:disabled{cursor:not-allowed}
+
+/* Wave bars: fixed-size box + transform only = zero layout shift */
+.eq{height:32px;display:flex;align-items:center;justify-content:center;gap:6px;contain:layout paint}
+.eq-bar{width:6px;height:28px;border-radius:9999px;flex:none;will-change:transform;animation:eqWave var(--t,1.1s) ease-in-out infinite alternate;animation-delay:var(--d,0s)}
+@keyframes eqWave{from{transform:scaleY(.2)}to{transform:scaleY(1)}}
+
+.nav-scroll{position:relative;min-width:0;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;touch-action:pan-x}
+.nav-scroll::-webkit-scrollbar{display:none}
+.nav-scroll>button{flex:none;white-space:nowrap}
+.nav-scroll.fade-r{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent)}
+.nav-scroll.fade-l{-webkit-mask-image:linear-gradient(90deg,transparent,#000 28px);mask-image:linear-gradient(90deg,transparent,#000 28px)}
+.nav-scroll.fade-l.fade-r{-webkit-mask-image:linear-gradient(90deg,transparent,#000 28px,#000 calc(100% - 28px),transparent);mask-image:linear-gradient(90deg,transparent,#000 28px,#000 calc(100% - 28px),transparent)}
+#hdr-user,#hdr-user *{white-space:nowrap}
+.nav-tab-active{background:rgba(255,0,46,.14);color:#fff;border:1px solid rgba(255,0,46,.45);box-shadow:0 0 15px rgba(255,0,46,.2)}
+
+/* Auto-moving gallery */
+.mq{overflow:hidden;position:relative}
+.mq::before,.mq::after{content:'';position:absolute;top:0;bottom:0;width:6%;z-index:2;pointer-events:none}
+.mq::before{left:0;background:linear-gradient(90deg,#0b0b0d,rgba(11,11,13,0))}
+.mq::after{right:0;background:linear-gradient(270deg,#0b0b0d,rgba(11,11,13,0))}
+.mq-track{display:flex;gap:16px;width:max-content;animation:mq 50s linear infinite;will-change:transform}
+@media (hover:hover){.mq:hover .mq-track{animation-play-state:paused}}
+@keyframes mq{to{transform:translate3d(-50%,0,0)}}
+@keyframes viewIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.view-panel:not(.hidden){animation:viewIn .3s both}
+footer{content-visibility:auto;contain-intrinsic-size:1px 520px}
+#toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,160px);transition:transform .35s;z-index:90}
+#toast.on{transform:translate(-50%,0)}
+select option{background:#141418}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* Country button + built-in popup */
+.cbtn{width:100%;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:.75rem 1rem;border-radius:1rem;background:#141418;border:1px solid rgba(255,255,255,.1);font-size:.875rem;line-height:1.25rem;text-align:left;color:#71717a;transition:border-color .2s}
+.cbtn.has-val{color:#fff}
+.cbtn:focus,.cbtn:hover{border-color:#ff002e;outline:none}
+.cb-label{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cb-chev{flex:none;color:#a1a1aa}
+#country-modal{position:fixed;inset:0;z-index:100;display:flex;align-items:flex-end;justify-content:center;background:rgba(0,0,0,.72);opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s}
+#country-modal.on{opacity:1;visibility:visible}
+.cm-sheet{width:100%;max-width:30rem;height:78vh;height:78dvh;display:flex;flex-direction:column;background:#121216;border:1px solid rgba(255,255,255,.1);border-bottom:0;border-radius:1.5rem 1.5rem 0 0;transform:translateY(32px);transition:transform .25s cubic-bezier(.16,1,.3,1);overflow:hidden}
+#country-modal.on .cm-sheet{transform:none}
+.cm-head{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.25rem .5rem}
+.cm-head h3{font-size:1.05rem;font-weight:700;color:#fff}
+.cm-x{width:34px;height:34px;display:flex;align-items:center;justify-content:center;border-radius:9999px;background:rgba(255,255,255,.06);color:#d4d4d8}
+.cm-sw{display:flex;align-items:center;gap:8px;margin:.25rem 1.25rem .75rem;padding:0 .9rem;height:46px;border-radius:9999px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#a1a1aa}
+.cm-sw:focus-within{border-color:#ff002e}
+.cm-sw input{flex:1;min-width:0;height:100%;background:transparent;border:0;outline:none;color:#fff;font-size:16px}
+.cm-list{flex:1;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:0 .75rem calc(1rem + env(safe-area-inset-bottom))}
+.cm-sheet.auto{height:auto;max-height:78vh;max-height:78dvh}
+.cm-sheet.auto .cm-list{flex:0 1 auto;padding-top:.25rem}
+.cm-h{padding:.75rem .5rem .35rem;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#ff002e}
+.cm-item{width:100%;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:.8rem .75rem;border-radius:.9rem;text-align:left;font-size:.95rem;color:#e4e4e7}
+.cm-item:active{background:rgba(255,255,255,.08)}
+.cm-item.sel{background:rgba(255,0,46,.14);color:#fff;font-weight:600}
+.cm-item.sel svg{color:#ff002e;flex:none}
+.cm-empty{padding:2rem 1rem;text-align:center;font-size:.9rem;color:#71717a}
+@media (min-width:768px){#country-modal{align-items:center}.cm-sheet{height:min(70vh,560px);border-radius:1.5rem;border-bottom:1px solid rgba(255,255,255,.1);transform:translateY(12px) scale(.98)}.cm-item:hover{background:rgba(255,255,255,.06)}}
+.absolute{position:absolute}.fixed{position:fixed}.relative{position:relative}.-bottom-8{bottom:-2rem}.inset-0{top:0;right:0;bottom:0;left:0}.left-0{left:0px}.left-1\/2{left:50%}.left-3{left:0.75rem}.right-0{right:0px}.right-1\.5{right:0.375rem}.top-0{top:0px}.top-1\.5{top:0.375rem}.top-3{top:0.75rem}.z-10{z-index:10}.z-40{z-index:40}.z-50{z-index:50}.block{display:block}.flex{display:flex}.grid{display:grid}.inline-block{display:inline-block}.inline-flex{display:inline-flex}.hidden{display:none}.flex-1{flex:1 1 0%}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-center{align-items:center}.items-start{align-items:flex-start}.justify-between{justify-content:space-between}.justify-center{justify-content:center}.self-start{align-self:flex-start}.shrink-0{flex-shrink:0}.gap-1{gap:0.25rem}.gap-2{gap:0.5rem}.gap-2\.5{gap:0.625rem}.gap-3{gap:0.75rem}.gap-3\.5{gap:0.875rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.mx-auto{margin-left:auto;margin-right:auto}.p-1{padding:0.25rem}.p-10{padding:2.5rem}.p-2{padding:0.5rem}.p-3{padding:0.75rem}.p-3\.5{padding:0.875rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-3\.5{padding-left:0.875rem;padding-right:0.875rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-10{padding-top:2.5rem;padding-bottom:2.5rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-3\.5{padding-top:0.875rem;padding-bottom:0.875rem}.py-4{padding-top:1rem;padding-bottom:1rem}.mt-0\.5{margin-top:0.125rem}.mt-1{margin-top:0.25rem}.mt-12{margin-top:3rem}.mt-2{margin-top:0.5rem}.mt-5{margin-top:1.25rem}.mt-6{margin-top:1.5rem}.pt-2{padding-top:0.5rem}.pt-24{padding-top:6rem}.pt-5{padding-top:1.25rem}.pt-6{padding-top:1.5rem}.pt-8{padding-top:2rem}.mb-1{margin-bottom:0.25rem}.mb-12{margin-bottom:3rem}.mb-16{margin-bottom:4rem}.mb-2{margin-bottom:0.5rem}.mb-20{margin-bottom:5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-5{margin-bottom:1.25rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.pb-1{padding-bottom:0.25rem}.pb-12{padding-bottom:3rem}.pb-14{padding-bottom:3.5rem}.pb-4{padding-bottom:1rem}.ml-0\.5{margin-left:0.125rem}.h-1\.5{height:0.375rem}.h-10{height:2.5rem}.h-11{height:2.75rem}.h-12{height:3rem}.h-14{height:3.5rem}.h-16{height:4rem}.h-2{height:0.5rem}.h-2\.5{height:0.625rem}.h-3\.5{height:0.875rem}.h-4{height:1rem}.h-44{height:11rem}.h-5{height:1.25rem}.h-6{height:1.5rem}.h-7{height:1.75rem}.h-8{height:2rem}.h-80{height:20rem}.h-full{height:100%}.max-w-2xl{max-width:42rem}.max-w-3xl{max-width:48rem}.max-w-4xl{max-width:56rem}.max-w-6xl{max-width:72rem}.max-w-7xl{max-width:80rem}.max-w-md{max-width:28rem}.max-w-xl{max-width:36rem}.min-h-screen{min-height:100vh}.min-w-\[280px\]{min-width:280px}.w-10{width:2.5rem}.w-11{width:2.75rem}.w-12{width:3rem}.w-14{width:3.5rem}.w-16{width:4rem}.w-2{width:0.5rem}.w-2\.5{width:0.625rem}.w-3\.5{width:0.875rem}.w-4{width:1rem}.w-5{width:1.25rem}.w-6{width:1.5rem}.w-7{width:1.75rem}.w-8{width:2rem}.w-80{width:20rem}.w-full{width:100%}.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) scale(var(--tw-scale-x),var(--tw-scale-y))}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) scale(var(--tw-scale-x),var(--tw-scale-y))}.cursor-pointer{cursor:pointer}.pointer-events-none{pointer-events:none}.select-none{-webkit-user-select:none;user-select:none}.object-cover{object-fit:cover}.overflow-hidden{overflow:hidden}.rounded{border-radius:.25rem}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-\[32px\]{border-radius:32px}.rounded-full{border-radius:9999px}.rounded-md{border-radius:.375rem}.rounded-xl{border-radius:.75rem}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-l-4{border-left-width:4px}.border-t{border-top-width:1px}.border-dashed{border-style:dashed}.border-\[\#ff002e\]\/20{border-color:rgba(255,0,46,0.2)}.border-\[\#ff002e\]\/30{border-color:rgba(255,0,46,0.3)}.border-white\/10{border-color:rgba(255,255,255,0.1)}.border-white\/15{border-color:rgba(255,255,255,0.15)}.border-white\/5{border-color:rgba(255,255,255,0.05)}.border-l-\[\#ff002e\]{border-left-color:#ff002e}.border-l-amber-500{border-left-color:#f59e0b}.border-l-emerald-500{border-left-color:#10b981}.border-l-rose-500{border-left-color:#f43f5e}.border-l-sky-500{border-left-color:#0ea5e9}.border-l-white\/10{border-left-color:rgba(255,255,255,0.1)}.bg-\[\#0b0b0d\]{background-color:#0b0b0d}.bg-\[\#141418\]{background-color:#141418}.bg-\[\#ff002e\]{background-color:#ff002e}.bg-\[\#ff002e\]\/10{background-color:rgba(255,0,46,0.1)}.bg-\[\#ff002e\]\/20{background-color:rgba(255,0,46,0.2)}.bg-\[\#ff0051\]{background-color:#ff0051}.bg-amber-500\/20{background-color:rgba(245,158,11,0.2)}.bg-black\/30{background-color:rgba(0,0,0,0.3)}.bg-black\/60{background-color:rgba(0,0,0,0.6)}.bg-black\/80{background-color:rgba(0,0,0,0.8)}.bg-brand-red{background-color:#ff002e}.bg-emerald-500\/20{background-color:rgba(16,185,129,0.2)}.bg-rose-400{background-color:#fb7185}.bg-rose-500{background-color:#f43f5e}.bg-rose-500\/20{background-color:rgba(244,63,94,0.2)}.bg-sky-500\/20{background-color:rgba(14,165,233,0.2)}.bg-white\/10{background-color:rgba(255,255,255,0.1)}.bg-white\/5{background-color:rgba(255,255,255,0.05)}.bg-white\/\[0\.015\]{background-color:rgba(255,255,255,0.015)}.bg-white\/\[0\.03\]{background-color:rgba(255,255,255,0.03)}.bg-zinc-400{background-color:#a1a1aa}.bg-zinc-900{background-color:#18181b}.bg-gradient-to-r{background-image:linear-gradient(to right,var(--tw-gradient-stops))}.bg-gradient-to-t{background-image:linear-gradient(to top,var(--tw-gradient-stops))}.bg-gradient-to-tr{background-image:linear-gradient(to top right,var(--tw-gradient-stops))}.from-\[\#ff002e\]{--tw-gradient-from:#ff002e;--tw-gradient-to:rgba(255,0,46,0);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-black\/80{--tw-gradient-from:rgba(0,0,0,0.8);--tw-gradient-to:rgba(0,0,0,0);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.via-\[\#ff0051\]{--tw-gradient-to:rgba(255,0,81,0);--tw-gradient-stops:var(--tw-gradient-from),#ff0051,var(--tw-gradient-to)}.via-black\/20{--tw-gradient-to:rgba(0,0,0,0);--tw-gradient-stops:var(--tw-gradient-from),rgba(0,0,0,0.2),var(--tw-gradient-to)}.to-\[\#ff0051\]{--tw-gradient-to:#ff0051}.to-rose-400{--tw-gradient-to:#fb7185}.to-transparent{--tw-gradient-to:transparent}.bg-clip-text{-webkit-background-clip:text;background-clip:text}.font-mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace}.text-center{text-align:center}.text-left{text-align:left}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-\[140px\]{font-size:140px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:.75rem;line-height:1rem}.leading-\[1\.08\]{line-height:1.08}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.font-black{font-weight:900}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-medium{font-weight:500}.font-normal{font-weight:400}.font-semibold{font-weight:600}.tracking-tight{letter-spacing:-.025em}.tracking-tighter{letter-spacing:-.05em}.tracking-wider{letter-spacing:.05em}.tracking-widest{letter-spacing:.1em}.underline{text-decoration-line:underline}.uppercase{text-transform:uppercase}.text-\[\#ff002e\]{color:#ff002e}.text-amber-400{color:#fbbf24}.text-emerald-400{color:#34d399}.text-gray-200{color:#e5e7eb}.text-rose-300{color:#fda4af}.text-rose-400{color:#fb7185}.text-sky-400{color:#38bdf8}.text-transparent{color:transparent}.text-white{color:#ffffff}.text-white\/\[0\.025\]{color:rgba(255,255,255,0.025)}.text-zinc-200{color:#e4e4e7}.text-zinc-300{color:#d4d4d8}.text-zinc-400{color:#a1a1aa}.text-zinc-500{color:#71717a}.backdrop-blur-2xl{-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}.opacity-0{opacity:0}.opacity-60{opacity:0.6}.opacity-80{opacity:0.8}.opacity-90{opacity:0.9}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgba(0,0,0,.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color),0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgba(0,0,0,.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color),0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-shadow)}.shadow-\[\#ff002e\]\/30{--tw-shadow-color:rgba(255,0,46,0.3);--tw-shadow:var(--tw-shadow-colored)}.shadow-\[\#ff002e\]\/50{--tw-shadow-color:rgba(255,0,46,0.5);--tw-shadow:var(--tw-shadow-colored)}.ring-2{box-shadow:0 0 0 2px var(--tw-ring-color)}.ring-\[\#0b0b0d\]{--tw-ring-color:#0b0b0d}.accent-\[\#ff002e\]{accent-color:#ff002e}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-colors{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.duration-300{transition-duration:.3s}.duration-500{transition-duration:.5s}.animate-ping{animation:ping 1s cubic-bezier(0,0,.2,1) infinite}.animate-pulse{animation:pulse 2s cubic-bezier(.4,0,.6,1) infinite}.group:hover .group-hover\:scale-105{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) scale(var(--tw-scale-x),var(--tw-scale-y))}.group:hover .group-hover\:scale-110{--tw-scale-x:1.1;--tw-scale-y:1.1;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) scale(var(--tw-scale-x),var(--tw-scale-y))}.focus\:border-\[\#ff002e\]:focus{border-color:#ff002e}.hover\:border-\[\#ff002e\]\/60:hover{border-color:rgba(255,0,46,0.6)}.hover\:border-white\/20:hover{border-color:rgba(255,255,255,0.2)}.hover\:bg-white\/10:hover{background-color:rgba(255,255,255,0.1)}.hover\:bg-white\/\[0\.03\]:hover{background-color:rgba(255,255,255,0.03)}.hover\:text-\[\#ff002e\]:hover{color:#ff002e}.hover\:text-white:hover{color:#ffffff}.group:hover .group-hover\:opacity-100{opacity:1}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.space-y-2>:not([hidden])~:not([hidden]){margin-top:0.5rem}.space-y-3>:not([hidden])~:not([hidden]){margin-top:0.75rem}.space-y-3\.5>:not([hidden])~:not([hidden]){margin-top:0.875rem}.space-y-4>:not([hidden])~:not([hidden]){margin-top:1rem}.space-y-5>:not([hidden])~:not([hidden]){margin-top:1.25rem}.space-y-6>:not([hidden])~:not([hidden]){margin-top:1.5rem}@media(min-width:640px){.sm\:inline{display:inline}.sm\:flex-row{flex-direction:row}.sm\:items-center{align-items:center}.sm\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.sm\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.sm\:mt-0{margin-top:0px}.sm\:w-auto{width:auto}}@media(min-width:768px){.md\:flex{display:flex}.md\:inline{display:inline}.md\:hidden{display:none}.md\:flex-row{flex-direction:row}.md\:items-center{align-items:center}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.md\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.md\:p-10{padding:2.5rem}.md\:p-14{padding:3.5rem}.md\:p-6{padding:1.5rem}.md\:p-8{padding:2rem}.md\:px-6{padding-left:1.5rem;padding-right:1.5rem}.md\:px-8{padding-left:2rem;padding-right:2rem}.md\:py-3\.5{padding-top:0.875rem;padding-bottom:0.875rem}.md\:pt-16{padding-top:4rem}.md\:pt-28{padding-top:7rem}.md\:pr-3{padding-right:0.75rem}.md\:pb-20{padding-bottom:5rem}.md\:h-20{height:5rem}.md\:min-w-\[340px\]{min-width:340px}.md\:w-20{width:5rem}.md\:text-3xl{font-size:1.875rem;line-height:2.25rem}.md\:text-5xl{font-size:3rem;line-height:1}.md\:text-7xl{font-size:4.5rem;line-height:1}.md\:text-\[220px\]{font-size:220px}.md\:text-base{font-size:1rem;line-height:1.5rem}.md\:text-lg{font-size:1.125rem;line-height:1.75rem}.md\:text-xl{font-size:1.25rem;line-height:1.75rem}}@media(min-width:1024px){.lg\:sticky{position:sticky}.lg\:top-28{top:7rem}.lg\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.lg\:col-span-2{grid-column:span 2 / span 2}}
+
+/* ===== HOME ADDITIONS ===== */
+.hx-wrap{margin-bottom:64px}
+.hx-head{display:flex;align-items:center;gap:8px;margin-bottom:16px}
+.hx-head i{width:10px;height:10px;border-radius:50%;background:#ff002e;display:block}
+.hx-head h3{font-size:14px;letter-spacing:.06em;font-weight:700;color:#e4e4e7;text-transform:uppercase}
+.hx-resp{display:inline-flex;align-items:center;gap:8px;margin-top:22px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);font-size:13px;color:#a1a1aa}
+.hx-resp b{color:#fff;font-weight:700}
+.hx-resp i{width:8px;height:8px;border-radius:50%;background:#22c55e;display:block;box-shadow:0 0 10px #22c55e}
+.hx-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:0 0 56px}
+@media(min-width:768px){.hx-stats{grid-template-columns:repeat(4,1fr);gap:16px}}
+.hx-stat{padding:22px 16px;border-radius:24px;text-align:center;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.hx-stat strong{display:block;font-size:34px;font-weight:900;letter-spacing:-.03em;color:#fff;line-height:1.05}
+@media(min-width:768px){.hx-stat strong{font-size:44px}}
+.hx-stat strong em{font-style:normal;color:#ff002e}
+.hx-stat span{display:block;margin-top:8px;font-size:12.5px;color:#a1a1aa}
+.hx-mission{padding:26px;border-radius:28px;background:linear-gradient(135deg,rgba(255,0,46,.12),rgba(255,255,255,.03));border:1px solid rgba(255,0,46,.28)}
+.hx-mission-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:10px}
+.hx-mission h3{font-size:22px;font-weight:800;color:#fff;letter-spacing:-.02em}
+.hx-mission p{font-size:14px;color:#a1a1aa;margin-top:6px;max-width:520px;line-height:1.55}
+.hx-mission .hx-nums{font-size:14px;color:#d4d4d8;font-weight:600}
+.hx-bar{height:12px;border-radius:999px;background:rgba(255,255,255,.08);margin-top:20px;overflow:hidden}
+.hx-bar i{display:block;height:100%;width:14.7%;border-radius:999px;background:linear-gradient(90deg,#ff002e,#ff0051)}
+.hx-bar-lbl{display:flex;justify-content:space-between;margin-top:8px;font-size:12px;color:#71717a}
+.hx-steps{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:768px){.hx-steps{grid-template-columns:repeat(4,1fr);gap:16px}}
+.hx-step{padding:22px;border-radius:24px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07)}
+.hx-step .n{width:34px;height:34px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;color:#fff;background:linear-gradient(135deg,#ff002e,#ff0051);margin-bottom:14px}
+.hx-step h4{font-size:17px;font-weight:700;color:#fff;margin-bottom:6px}
+.hx-step p{font-size:13.5px;color:#a1a1aa;line-height:1.55}
+.hx-step .t{display:inline-block;margin-top:10px;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:600;color:#fca5a5;background:rgba(255,0,46,.12);border:1px solid rgba(255,0,46,.3)}
+.hx-faq{display:grid;gap:10px}
+.hx-faq details{border-radius:20px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);padding:0 18px}
+.hx-faq summary{cursor:pointer;list-style:none;padding:16px 0;font-weight:600;color:#fff;font-size:15px;display:flex;justify-content:space-between;gap:12px}
+.hx-faq summary::-webkit-details-marker{display:none}
+.hx-faq summary::after{content:'+';color:#ff002e;font-size:20px;line-height:1}
+.hx-faq details[open] summary::after{content:'\2212'}
+.hx-faq details p{padding:0 0 16px;font-size:14px;color:#a1a1aa;line-height:1.6}
+.hx-more{margin-top:14px;font-size:13px;color:#a1a1aa;background:none}
+.hx-more:hover{color:#fff}
+.hx-cta{text-align:center;padding:44px 22px;border-radius:32px;background:radial-gradient(circle at 50% 0,rgba(255,0,46,.22),rgba(255,255,255,.03) 70%);border:1px solid rgba(255,255,255,.1)}
+.hx-cta h3{font-size:28px;font-weight:900;letter-spacing:-.03em;color:#fff;line-height:1.15}
+@media(min-width:768px){.hx-cta h3{font-size:40px}}
+.hx-cta p{margin:12px auto 24px;max-width:480px;font-size:15px;color:#a1a1aa;line-height:1.6}
+
+.hx-why{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:640px){.hx-why{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.hx-why{grid-template-columns:repeat(4,1fr);gap:16px}}
+.hx-why div{padding:22px;border-radius:24px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07)}
+.hx-why h4{font-size:16px;font-weight:700;color:#fff;margin-bottom:6px}
+.hx-why p{font-size:13.5px;color:#a1a1aa;line-height:1.55}
+.hx-chips{display:flex;flex-wrap:wrap;gap:10px}
+.hx-chips span{padding:9px 16px;border-radius:999px;font-size:13.5px;font-weight:600;color:#e4e4e7;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1)}
+.hx-yt{display:flex;flex-direction:column;gap:16px;align-items:flex-start;padding:26px;border-radius:28px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+@media(min-width:768px){.hx-yt{flex-direction:row;align-items:center;justify-content:space-between}}
+.hx-yt h3{font-size:20px;font-weight:800;color:#fff}
+.hx-yt p{font-size:14px;color:#a1a1aa;margin-top:4px}
+.hx-yt a{padding:12px 24px;border-radius:999px;font-weight:700;font-size:14px;color:#fff;background:#ff002e;white-space:nowrap}
+.pg-date{font-size:12px;color:#71717a;margin-top:6px}
+.pg-box{margin-top:20px;padding:16px 18px;border-radius:18px;background:rgba(255,0,46,.08);border:1px solid rgba(255,0,46,.25);font-size:14px;color:#e4e4e7;line-height:1.6}
+.pg-box a,.pg-link{color:#fff;font-weight:700;text-decoration:underline}
+
+/* ===== DASHBOARD + NOTIFICATIONS ===== */
+.db-actions{display:flex;gap:10px;width:100%}
+@media(min-width:768px){.db-actions{width:auto}}
+.db-actions>*{flex:1;text-align:center}
+.db-actions .btn-brand{flex:2}
+.db-alert{width:100%;display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:16px;padding:14px 18px;border-radius:18px;background:rgba(255,0,46,.1);border:1px solid rgba(255,0,46,.3);font-size:14px;color:#fff;text-align:left}
+.db-alert i{display:inline-block;width:8px;height:8px;border-radius:50%;background:#ff002e;margin-right:10px}
+.db-alert b{color:#ff6b86;white-space:nowrap}
+.db-stat{display:flex;flex-direction:column;gap:2px;text-align:left;padding:16px;border-radius:20px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.db-stat span{font-size:12.5px;font-weight:700}
+.db-stat b{font-size:30px;font-weight:900;line-height:1.1;margin-top:2px}
+.db-stat small{font-size:12px;color:#a1a1aa;margin-top:2px}
+@media(hover:hover){.db-stat:hover{border-color:rgba(255,255,255,.2)}}
+.db-tools{display:flex;flex-direction:column;gap:10px;margin-bottom:16px}
+@media(min-width:768px){.db-tools{flex-direction:row;justify-content:space-between;align-items:center}}
+.db-chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.db-chips::-webkit-scrollbar{display:none}
+.db-chip{flex:none;padding:8px 14px;border-radius:999px;font-size:13px;font-weight:600;color:#d4d4d8;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1)}
+.db-chip em{font-style:normal;color:#71717a;margin-left:4px}
+.db-chip.on{color:#fff;background:rgba(255,0,46,.16);border-color:rgba(255,0,46,.5)}
+.db-chip.on em{color:#fca5a5}
+.db-search{width:100%;max-width:280px;padding:9px 16px;border-radius:999px;font-size:14px;color:#fff;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);outline:none}
+@media(max-width:767px){.db-search{max-width:none}}
+.db-search:focus{border-color:rgba(255,0,46,.5)}
+#dash-list{display:grid;gap:16px}
+.db-card{padding:20px;border-radius:24px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-left:4px solid var(--c)}
+.db-top{display:flex;flex-direction:column;gap:14px}
+@media(min-width:640px){.db-top{flex-direction:row;justify-content:space-between;align-items:flex-start}}
+.db-pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:700;color:var(--c);background:var(--cb);border:1px solid var(--cl)}
+.db-top h4{font-size:21px;font-weight:800;color:#fff;margin-top:8px;line-height:1.2;word-break:break-word}
+.db-meta{font-size:14px;color:#d4d4d8;margin-top:4px}
+.db-sub{font-size:13px;color:#71717a;margin-top:2px}
+.db-btn{flex:none;align-self:flex-start;padding:10px 18px;border-radius:999px;font-size:14px;font-weight:700;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15)}
+.db-btn.main{background:linear-gradient(135deg,#ff002e,#ff0051);border-color:transparent}
+.db-steps{display:grid;grid-template-columns:repeat(3,1fr);margin:20px 0 6px}
+.db-step{position:relative;display:flex;flex-direction:column;align-items:center;gap:8px;font-size:13px;color:#71717a;text-align:center}
+.db-step i{position:relative;z-index:1;width:16px;height:16px;border-radius:50%;background:#27272a;border:2px solid #3f3f46}
+.db-step+.db-step::before{content:'';position:absolute;top:7px;right:50%;width:100%;height:2px;background:#3f3f46}
+.db-step.done,.db-step.now{color:#fff;font-weight:600}
+.db-step.done i,.db-step.now i{background:var(--sc);border-color:var(--sc)}
+.db-step.done+.db-step::before,.db-step.now::before{background:var(--sc)}
+.db-step.now i{box-shadow:0 0 0 5px rgba(255,255,255,.08)}
+.db-hint{font-size:14px;color:#d4d4d8;line-height:1.55;margin-top:14px}
+.db-note{margin-top:14px;padding:14px 16px;border-radius:16px;background:var(--cb);border:1px solid var(--cl)}
+.db-note b{display:block;font-size:13px;color:#fff;margin-bottom:4px}
+.db-note p{font-size:14px;color:#e4e4e7;line-height:1.55}
+.db-det{margin-top:14px;border-top:1px solid rgba(255,255,255,.07);padding-top:12px}
+.db-det summary{cursor:pointer;list-style:none;font-size:13.5px;font-weight:600;color:#a1a1aa}
+.db-det summary::-webkit-details-marker{display:none}
+.db-det summary::after{content:' +'}
+.db-det[open] summary::after{content:' \2212'}
+.db-grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:12px}
+@media(min-width:640px){.db-grid{grid-template-columns:repeat(2,1fr)}}
+.db-grid small{font-size:12px;color:#71717a}
+.db-grid p{font-size:14px;color:#e4e4e7;word-break:break-word;margin-top:2px}
+.nf{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border-radius:20px;cursor:pointer;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);margin-bottom:10px}
+.nf i{flex:none;width:10px;height:10px;border-radius:50%;background:#3f3f46;margin-top:6px}
+.nf.new{background:rgba(255,0,46,.07);border-color:rgba(255,0,46,.28)}
+.nf.new i{background:#ff002e;box-shadow:0 0 10px #ff002e}
+.nf>div{flex:1;min-width:0}
+.nf-top{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.nf h4{font-size:15.5px;font-weight:700;color:#fff}
+.nf-top span{flex:none;font-size:12px;color:#71717a}
+.nf p{font-size:14px;color:#a1a1aa;line-height:1.55;margin-top:4px}
+
+.lg h2{font-size:30px;font-weight:800;color:#fff;letter-spacing:-.02em}
+.lg .lg-meta{font-size:12.5px;color:#71717a;margin-top:6px}
+.lg .lg-lead{font-size:14.5px;color:#d4d4d8;line-height:1.7;margin-top:16px}
+.lg h4{font-size:16px;font-weight:700;color:#fff;margin:26px 0 8px}
+.lg p,.lg li{font-size:14px;color:#a1a1aa;line-height:1.7}
+.lg p+p{margin-top:8px}
+.lg ul{list-style:disc;padding-left:20px;display:grid;gap:4px;margin-top:6px}
+.lg a{color:#fff;font-weight:600;text-decoration:underline}
+.lg .lg-foot{margin-top:28px;padding:16px 18px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+
+/* ===== MESSAGES ===== */
+.ch-panel{position:relative;display:flex;flex-direction:column;border-radius:28px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);overflow:hidden;max-width:820px;margin:0 auto}
+.ch-head{display:flex;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.03)}
+.ch-av{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;background:linear-gradient(135deg,#ff002e,#ff0051)}
+.ch-hd{flex:1;min-width:0}.ch-hd b{display:block;font-size:15px;color:#fff}.ch-hd small{font-size:12px;color:#a1a1aa}
+.ch-live{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:#34d399}
+.ch-live i{width:8px;height:8px;border-radius:50%;background:#34d399;box-shadow:0 0 8px #34d399}
+.ch-live.off{color:#fbbf24}.ch-live.off i{background:#fbbf24;box-shadow:0 0 8px #fbbf24}
+.ch-list{height:min(62dvh,560px);min-height:320px;overflow-y:auto;padding:18px 16px;display:flex;flex-direction:column;gap:6px;scroll-behavior:smooth}
+.ch-day{align-self:center;margin:10px 0 6px;padding:4px 12px;border-radius:999px;font-size:12px;color:#a1a1aa;background:rgba(255,255,255,.05)}
+.ch-row{display:flex;flex-direction:column;max-width:82%}
+.ch-row.me{align-self:flex-end;align-items:flex-end}.ch-row.them{align-self:flex-start;align-items:flex-start}
+.ch-who{font-size:12px;font-weight:700;color:#ff6b86;margin:6px 0 3px 4px}
+.ch-bub{padding:10px 14px;border-radius:20px;font-size:14.5px;line-height:1.5;word-break:break-word;white-space:pre-wrap;color:#f4f4f5}
+.me .ch-bub{background:linear-gradient(135deg,#ff002e,#ff0051);border-bottom-right-radius:6px}
+.them .ch-bub{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08);border-bottom-left-radius:6px}
+.ch-bub.gone{background:transparent!important;border:1px dashed rgba(255,255,255,.18)!important;color:#71717a;font-style:italic;font-size:13.5px}
+.ch-bub .ch-t+.ch-img,.ch-bub .ch-t+.ch-file{margin-top:8px}
+.ch-img img{display:block;max-width:100%;width:260px;max-height:300px;object-fit:cover;border-radius:14px;background:rgba(0,0,0,.25);min-height:80px}
+.ch-file,.ch-att{display:flex;align-items:center;gap:12px}
+.ch-file{padding:10px 12px;border-radius:14px;background:rgba(0,0,0,.22);min-width:210px;color:#fff}
+.ch-fi{flex:none;width:38px;height:38px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.12)}
+.ch-file b,.ch-att b{display:block;font-size:13.5px;font-weight:600;word-break:break-all;white-space:normal}
+.ch-file small,.ch-att small{font-size:12px;opacity:.7}
+.ch-meta{display:flex;gap:10px;align-items:center;margin:3px 6px 0;font-size:11.5px;color:#71717a}
+.ch-x,.ch-ask button{font-size:11.5px;color:#a1a1aa;text-decoration:underline;background:none}
+.ch-x:hover,.ch-ask button:hover{color:#fff}
+.ch-ask{color:#fda4af}.ch-ask button+button{margin-left:8px}
+.ch-empty{margin:auto;text-align:center;max-width:340px;color:#a1a1aa;font-size:14px;line-height:1.6}
+.ch-empty b{display:block;color:#fff;font-size:17px;margin-bottom:6px}
+.ch-topics{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:14px}
+.ch-topics button{padding:8px 14px;border-radius:999px;font-size:13px;font-weight:600;color:#e4e4e7;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12)}
+.ch-new{position:absolute;left:50%;transform:translateX(-50%);bottom:112px;padding:8px 16px;border-radius:999px;font-size:13px;font-weight:700;color:#fff;background:#ff002e;box-shadow:0 8px 24px rgba(255,0,46,.4);z-index:2}
+.ch-att{margin:0 14px;padding:10px 12px;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#fff}
+.ch-att.up{opacity:.6}.ch-att>span+span{flex:1;min-width:0}
+.ch-att img{width:38px;height:38px;border-radius:10px;object-fit:cover}
+.ch-att button{font-size:22px;line-height:1;color:#a1a1aa;padding:0 6px}
+.ch-comp{display:flex;align-items:flex-end;gap:8px;padding:12px 14px}
+.ch-comp textarea{flex:1;min-height:44px;max-height:140px;resize:none;padding:11px 16px;border-radius:22px;font-size:15px;line-height:1.4;color:#fff;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);outline:none;font-family:inherit}
+.ch-comp textarea:focus{border-color:rgba(255,0,46,.55)}
+.ch-ic,.ch-send{flex:none;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#d4d4d8;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1)}
+.ch-send{color:#fff;background:linear-gradient(135deg,#ff002e,#ff0051);border:0}
+.ch-send:disabled{opacity:.5}
+.ch-hint{padding:0 18px 14px;font-size:11.5px;color:#71717a;line-height:1.5}
+@media(max-width:640px){.ch-row{max-width:90%}.ch-panel{border-radius:22px}}
+
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:2px solid #ff002e;outline-offset:2px}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+.nojs{max-width:480px;margin:20vh auto;padding:24px;text-align:center;color:#d4d4d8;font-size:15px;line-height:1.6}
+</style>
+</head>
+<body class="bg-[#0b0b0d] text-gray-200 min-h-screen relative bg-grain pb-12">
+<noscript><div class="nojs"><b style="color:#fff">JavaScript is required</b><br/>NVN Music needs JavaScript to run. Please enable it in your browser settings and reload the page.</div></noscript>
+<!-- Ambient glow (clipped fixed layer, never widens the page) -->
+<div class="bg-fx" aria-hidden="true"><i class="fx-r1"></i><i class="fx-b1"></i><i class="fx-r2"></i></div>
+<!-- FLOATING FROSTED GLASS HEADER (Mobile & Desktop) -->
+<header class="fixed top-3 left-0 right-0 z-50 px-3 md:px-8 max-w-7xl mx-auto">
+<div class="glass-panel rounded-full px-4 py-2.5 md:py-3.5 flex items-center justify-between shadow-2xl border border-white/10 transition-all duration-300">
+<!-- Brand Logo & Tagline -->
+<a class="flex items-center gap-2.5 group shrink-0" href="#home" onclick="switchSection('home')">
+<div class="w-8 h-8 rounded-full bg-gradient-to-tr from-[#ff002e] to-[#ff0051] flex items-center justify-center shadow-lg shadow-[#ff002e]/30 group-hover:scale-105 transition-transform">
+<svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+</svg>
+</div>
+<div class="flex flex-col">
+<span class="font-extrabold tracking-tight text-white text-base md:text-lg leading-none">NVN <span class="text-zinc-400 font-medium text-xs tracking-wider">MUSIC</span></span>
+</div>
+</a>
+<!-- Desktop Nav Links -->
+<nav class="nav-scroll hidden md:flex items-center gap-1 bg-white/[0.03] p-1 mx-3 rounded-full border border-white/5 text-sm font-medium" id="main-nav">
+<button class="px-4 py-1.5 rounded-full transition-all nav-tab-active" id="tab-btn-home" onclick="switchSection('home')">Home</button>
+<button class="px-4 py-1.5 rounded-full transition-all text-zinc-400 hover:text-white" id="tab-btn-submit" onclick="switchSection('submit')">Submit Song</button>
+<button class="px-4 py-1.5 rounded-full transition-all text-zinc-400 hover:text-white" id="tab-btn-dashboard" onclick="switchSection('dashboard')">Artist Dashboard</button>
+<button class="px-4 py-1.5 rounded-full transition-all text-zinc-400 hover:text-white relative" id="tab-btn-notifications" onclick="switchSection('notifications')">
+          Notifications
+          <span class="hidden absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-brand-red animate-pulse" id="tab-dot"></span>
+</button>
+<button class="px-4 py-1.5 rounded-full transition-all text-zinc-400 hover:text-white relative" id="tab-btn-messages" onclick="switchSection('messages')">Messages<span class="hidden absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-brand-red animate-pulse" id="msg-dot"></span></button>
+<button class="px-4 py-1.5 rounded-full transition-all text-zinc-400 hover:text-white" id="tab-btn-guidelines" onclick="switchSection('guidelines')">Guidelines</button>
+</nav>
+<!-- Right Header Actions -->
+<div class="flex items-center gap-2 shrink-0">
+<button aria-label="Notifications" class="hidden relative p-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 text-zinc-300 hover:text-white transition-all" id="bell-btn" onclick="switchSection('notifications')">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="hidden absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#ff002e] ring-2 ring-[#0b0b0d]" id="bell-dot"></span>
+</button>
+<div id="hdr-user"></div>
+<button aria-label="Menu" class="md:hidden p-2 rounded-full bg-white/5 border border-white/10 text-white" id="mobile-menu-btn" onclick="toggleMobileDrawer()">
+<svg class="w-4 h-4" fill="none" id="menu-icon-bars" stroke="currentColor" viewbox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></path></svg>
+<svg class="w-4 h-4 hidden" fill="none" id="menu-icon-close" stroke="currentColor" viewbox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></path></svg>
+</button>
+</div>
+</div>
+</header>
+<!-- MOBILE SLIDE-DOWN DRAWER -->
+<div class="fixed inset-0 z-40 bg-black/80 backdrop-blur-2xl opacity-0 pointer-events-none transition-all duration-300 flex flex-col justify-between p-6 pt-24 md:hidden" id="mobile-drawer">
+<div class="space-y-3">
+<p class="text-xs uppercase font-bold tracking-widest text-[#ff002e] px-3">Navigation</p>
+<div class="grid grid-cols-1 gap-2">
+<button class="w-full text-left text-xl font-bold p-3 rounded-2xl bg-white/5 hover:bg-white/10 text-white" onclick="mobileNavTo('home')">Home</button>
+<button class="w-full text-left text-xl font-bold p-3 rounded-2xl bg-white/5 hover:bg-white/10 text-white" onclick="mobileNavTo('submit')">Submit Song</button>
+<button class="w-full text-left text-xl font-bold p-3 rounded-2xl bg-white/5 hover:bg-white/10 text-white" onclick="mobileNavTo('dashboard')">Artist Dashboard</button>
+<button class="w-full text-left text-xl font-bold p-3 rounded-2xl bg-white/5 hover:bg-white/10 text-white flex items-center gap-2" onclick="mobileNavTo('notifications')"><span>Notifications</span><span class="hidden w-2 h-2 rounded-full bg-[#ff002e]" id="drawer-dot"></span></button>
+<button class="w-full text-left text-xl font-bold p-3 rounded-2xl bg-white/5 hover:bg-white/10 text-white flex items-center gap-2" onclick="mobileNavTo('messages')"><span>Messages</span><span class="hidden w-2 h-2 rounded-full bg-[#ff002e]" id="drawer-msg-dot"></span></button>
+<button class="w-full text-left text-xl font-bold p-3 rounded-2xl bg-white/5 hover:bg-white/10 text-white" onclick="mobileNavTo('guidelines')">Guidelines &amp; FAQ</button>
+</div>
+</div>
+<div class="pt-6 border-t border-white/10 space-y-3" id="drawer-account"></div>
+</div>
+<!-- MAIN ALL-IN-ONE CONTAINER -->
+<main class="max-w-6xl mx-auto px-4 md:px-6 pt-24 md:pt-28">
+<!-- HOME -->
+<section class="view-panel transition-opacity duration-300" id="section-home">
+<div class="text-center pt-8 pb-14 md:pt-16 md:pb-20 relative">
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-semibold tracking-wider text-zinc-300 uppercase mb-6 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-[#ff002e] animate-ping"></span>
+          Not Just Music, It's a Mood
+        </div>
+<h1 class="text-4xl md:text-7xl font-extrabold tracking-tight text-white max-w-4xl mx-auto leading-[1.08] mb-6">
+          Turn your song into a professional <br class="hidden sm:inline"/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-[#ff002e] via-[#ff0051] to-rose-400">lyric video</span> for a worldwide audience.
+        </h1>
+<p class="text-base md:text-xl text-zinc-400 max-w-2xl mx-auto font-normal leading-relaxed mb-8">
+          Submit your song to NVN Music. Selected songs are produced as lyric videos and published on our YouTube channel, and you can follow every step from your dashboard.
+        </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 max-w-md mx-auto">
+<button class="btn-brand w-full sm:w-auto px-8 py-3.5 rounded-full text-white font-bold text-base flex items-center justify-center gap-2.5" onclick="switchSection('submit')">
+<span>Submit Your Song</span>
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg>
+</button>
+<button class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 text-white font-semibold text-base transition-all flex items-center justify-center gap-2" onclick="switchSection('dashboard')">
+<svg class="w-4 h-4 text-[#ff002e]" fill="currentColor" viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+<span>View Artist Dashboard</span>
+</button>
+</div>
+<div class="hx-resp"><i></i><span>Team response time: <b>within 3–5 days</b></span></div>
+<div class="eq mt-12 opacity-80" aria-hidden="true">
+<div class="bg-[#ff002e] eq-bar" style="--d:-.0s;--t:1.1s"></div>
+<div class="bg-[#ff0051] eq-bar" style="--d:-.35s;--t:1.3s"></div>
+<div class="bg-rose-400 eq-bar" style="--d:-.7s;--t:0.9s"></div>
+<div class="bg-[#ff002e] eq-bar" style="--d:-.15s;--t:1.2s"></div>
+<div class="bg-zinc-400 eq-bar" style="--d:-.5s;--t:1.0s"></div>
+<div class="bg-[#ff0051] eq-bar" style="--d:-.85s;--t:1.35s"></div>
+<div class="bg-[#ff002e] eq-bar" style="--d:-.25s;--t:1.15s"></div>
+</div>
+</div>
+<!-- STATS -->
+<div class="hx-stats">
+<div class="hx-stat"><strong>147K<em>+</em></strong><span>YouTube subscribers</span></div>
+<div class="hx-stat"><strong>53M<em>+</em></strong><span>Total views</span></div>
+<div class="hx-stat"><strong>Worldwide</strong><span>Audience across the globe</span></div>
+<div class="hx-stat"><strong>3–5<em> days</em></strong><span>Team response time</span></div>
+</div>
+<!-- GALLERY (auto-moving, loaded from database) -->
+<div class="mb-16">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-[#ff002e]"></span><h3 class="text-sm uppercase tracking-wider font-bold text-zinc-200">From the channel</h3></div>
+<a class="text-xs text-zinc-400 hover:text-white" href="https://www.youtube.com/@NVN_Music" rel="noopener" target="_blank">Watch on YouTube</a>
+</div>
+<div class="mq" id="gallery"><p class="text-sm text-zinc-500 py-10 text-center">Loading videos...</p></div>
+</div>
+<!-- FEATURES -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-20">
+<div class="glass-card rounded-3xl p-6">
+<div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-[#ff002e] mb-4"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></div>
+<h3 class="font-bold text-lg text-white mb-2">Lyric Videos</h3>
+<p class="text-sm text-zinc-400 leading-relaxed">Accepted songs are turned into lyric videos for the NVN Music YouTube channel.</p>
+</div>
+<div class="glass-card rounded-3xl p-6">
+<div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-[#ff002e] mb-4"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></div>
+<h3 class="font-bold text-lg text-white mb-2">Live Status Tracking</h3>
+<p class="text-sm text-zinc-400 leading-relaxed">See on your dashboard when your song is submitted, in review, accepted, declined or published on YouTube.</p>
+</div>
+<div class="glass-card rounded-3xl p-6">
+<div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-[#ff002e] mb-4"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></div>
+<h3 class="font-bold text-lg text-white mb-2">Notifications</h3>
+<p class="text-sm text-zinc-400 leading-relaxed">Get a notification with the team's message as soon as the status of your song changes.</p>
+</div>
+</div>
+<!-- MISSION -->
+<div class="hx-wrap">
+<div class="hx-mission">
+<div class="hx-mission-top">
+<div><h3>Our mission: 1 Million subscribers</h3><p>Every lyric video we publish takes the channel, and the artists on it, closer to 1M. Your song can be part of that.</p></div>
+<div class="hx-nums">147K / 1M</div>
+</div>
+<div class="hx-bar" role="progressbar" aria-valuemin="0" aria-valuemax="1000000" aria-valuenow="147000" aria-label="Progress to 1 million subscribers"><i></i></div>
+<div class="hx-bar-lbl"><span>147K subscribers today</span><span>Goal: 1M</span></div>
+</div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="hx-wrap">
+<div class="hx-head"><i></i><h3>How it works</h3></div>
+<div class="hx-steps">
+<div class="hx-step"><div class="n">1</div><h4>Submit</h4><p>Upload your song, lyrics and cover art. It takes a few minutes.</p></div>
+<div class="hx-step"><div class="n">2</div><h4>Review</h4><p>The NVN team listens to your song and checks your details.</p><span class="t">Response within 3–5 days</span></div>
+<div class="hx-step"><div class="n">3</div><h4>Decision</h4><p>You get a notification with a message from the team.</p></div>
+<div class="hx-step"><div class="n">4</div><h4>Lyric video</h4><p>Accepted songs go live on the NVN Music YouTube channel.</p></div>
+</div>
+</div>
+
+<!-- WHY NVN -->
+<div class="hx-wrap">
+<div class="hx-head"><i></i><h3>Why artists choose NVN Music</h3></div>
+<div class="hx-why">
+<div><h4>Free to submit</h4><p>No fees, no hidden charges. Create an account and send your song.</p></div>
+<div><h4>You keep your rights</h4><p>Your song stays yours. We only publish it if you are accepted, and you can ask for removal.</p></div>
+<div><h4>Real audience</h4><p>Your lyric video goes on a channel with 147K+ subscribers and 53M+ views.</p></div>
+<div><h4>Clear status</h4><p>Track your song live and get a message from the team with every decision.</p></div>
+</div>
+</div>
+
+<!-- GENRES -->
+<div class="hx-wrap">
+<div class="hx-head"><i></i><h3>Genres we feature</h3></div>
+<div class="hx-chips"><span>Brazilian Funk</span><span>Phonk</span><span>Montagem</span><span>Pop</span><span>K-pop</span><span>Electronic</span></div>
+</div>
+
+<!-- FAQ PREVIEW -->
+<div class="hx-wrap">
+<div class="hx-head"><i></i><h3>Quick answers</h3></div>
+<div class="hx-faq">
+<details><summary>Is there a fee to submit?</summary><p>No. Creating an account and submitting a song is free.</p></details>
+<details><summary>How long until I hear back?</summary><p>The NVN team responds within 3–5 days. You will see the result on your dashboard and get a notification.</p></details>
+<details><summary>Which audio files work?</summary><p>MP3, WAV, FLAC, M4A, AAC and OGG up to 50 MB. WAV or FLAC gives the best result.</p></details>
+<details><summary>Do I need to own the song?</summary><p>Yes. You must own or control the rights to the music, lyrics and cover art.</p></details>
+</div>
+<button class="hx-more" onclick="switchSection('guidelines')">See all Guidelines &amp; FAQ →</button>
+</div>
+
+<!-- YOUTUBE BAND -->
+<div class="hx-wrap">
+<div class="hx-yt">
+<div><h3>See the work before you submit</h3><p>Watch our lyric videos on YouTube and join 147K+ subscribers.</p></div>
+<a href="https://www.youtube.com/@NVN_Music" rel="noopener" target="_blank">Visit the channel</a>
+</div>
+</div>
+
+<!-- FINAL CTA -->
+<div class="hx-cta" style="margin-bottom:64px">
+<h3>Ready to submit your song?</h3>
+<p>Create a free account, submit your track and receive a decision from our team within 3–5 days.</p>
+<button class="btn-brand px-8 py-3.5 rounded-full text-white font-bold text-base" onclick="switchSection('submit')">Submit Your Song</button>
+</div>
+</section>
+<!-- SUBMIT -->
+<section class="view-panel hidden transition-opacity duration-300" id="section-submit">
+<div class="mb-8">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#ff002e]/10 border border-[#ff002e]/30 text-xs font-bold text-[#ff002e] uppercase mb-2">New submission</div>
+<h2 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight">Submit Your Music</h2>
+<p class="text-sm md:text-base text-zinc-400 mt-1 max-w-2xl">Send your song to the NVN team. Every submission is reviewed and you will see the result on your dashboard.</p>
+</div>
+<form class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-16" id="submit-form">
+<div class="lg:col-span-2 space-y-6">
+<div class="hidden p-3.5 rounded-2xl bg-[#ff002e]/10 border border-[#ff002e]/30 text-sm text-rose-300" id="submit-error" role="alert"></div>
+<!-- 01 -->
+<div class="glass-card rounded-3xl p-6 md:p-8">
+<div class="flex items-center justify-between border-b border-white/10 pb-4 mb-6"><div class="flex items-center gap-3"><span class="w-8 h-8 rounded-full bg-[#ff002e]/20 text-[#ff002e] font-extrabold flex items-center justify-center text-sm">01</span><h3 class="text-lg font-bold text-white">Track Profile &amp; Identity</h3></div><span class="text-xs text-zinc-400">Required</span></div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div><label class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">Artist Name *</label><input class="w-full px-4 py-3 rounded-2xl bg-white/5 border border-white/10 focus:border-[#ff002e] focus:outline-none text-white text-sm" id="f-artist" maxlength="100" required type="text"/></div>
+<div><label class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">Track Title *</label><input class="w-full px-4 py-3 rounded-2xl bg-white/5 border border-white/10 focus:border-[#ff002e] focus:outline-none text-white text-sm" id="f-title" maxlength="150" placeholder="e.g. Neon Horizon" required type="text"/></div>
+<div><label class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">Country *</label><button class="cbtn" id="f-country-btn" data-target="f-country" type="button" aria-haspopup="dialog"><span class="cb-label">Select country</span><svg class="cb-chev" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg></button><input id="f-country" type="hidden"/></div>
+<div><label class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">Genre *</label><button class="cbtn" id="f-genre-btn" data-target="f-genre" type="button" aria-haspopup="dialog"><span class="cb-label">Select genre</span><svg class="cb-chev" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg></button><input id="f-genre" type="hidden"/></div>
+<div><label class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">Song Language</label><input class="w-full px-4 py-3 rounded-2xl bg-white/5 border border-white/10 focus:border-[#ff002e] focus:outline-none text-white text-sm" id="f-lang" maxlength="60" placeholder="English, Urdu, Portuguese..." type="text"/></div>
+<div><label class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">Target Release Date <span class="normal-case tracking-normal text-zinc-500 font-medium">(optional)</span></label><input autocomplete="off" class="w-full px-4 py-3 rounded-2xl bg-white/5 border border-white/10 focus:border-[#ff002e] focus:outline-none text-white text-sm" id="f-date" inputmode="numeric" maxlength="10" placeholder="dd/mm/yyyy" type="text"/><p class="text-[11px] text-zinc-500 mt-2 leading-relaxed" id="f-date-hint"></p></div>
+</div>
+</div>
+<!-- 02 -->
+<div class="glass-card rounded-3xl p-6 md:p-8">
+<div class="flex items-center justify-between border-b border-white/10 pb-4 mb-6"><div class="flex items-center gap-3"><span class="w-8 h-8 rounded-full bg-[#ff002e]/20 text-[#ff002e] font-extrabold flex items-center justify-center text-sm">02</span><h3 class="text-lg font-bold text-white">Audio &amp; Cover Art</h3></div><span class="text-xs text-[#ff002e] font-semibold">High Quality Preferred</span></div>
+<label class="block border-2 border-dashed border-white/15 hover:border-[#ff002e]/60 rounded-3xl p-8 text-center transition-all bg-white/[0.015] hover:bg-white/[0.03] cursor-pointer mb-5" for="f-audio">
+<div class="w-14 h-14 mx-auto rounded-2xl bg-[#ff002e]/10 text-[#ff002e] flex items-center justify-center mb-3"><svg class="w-7 h-7" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></div>
+<p class="font-bold text-white text-base mb-1" id="audio-name">Choose your original audio file <span class="text-[#ff002e] underline">browse</span></p>
+<p class="text-xs text-zinc-400">NVN Music supported formats: MP3, WAV, FLAC, M4A, AAC, OGG (Max 50MB)</p>
+</label>
+<input accept=".mp3,.wav,.flac,.m4a,.aac,.ogg,audio/*" class="hidden" id="f-audio" required type="file"/>
+<div class="p-3.5 rounded-2xl bg-[#ff002e]/10 border border-[#ff002e]/20 flex items-start gap-3 mb-5"><span class="text-[11px] font-extrabold tracking-wider text-[#ff002e] mt-0.5">NOTE</span><p class="text-xs text-zinc-300 leading-relaxed"><strong class="text-white">Audio quality recommendation.</strong> WAV or FLAC gives the best result, or MP3 at 320 kbps.</p></div>
+<label class="block border border-dashed border-white/15 hover:border-[#ff002e]/60 rounded-2xl p-4 text-center cursor-pointer bg-white/[0.015]" for="f-cover"><p class="text-sm text-zinc-300" id="cover-name">Cover art (optional): JPG, PNG or WebP, max 5MB</p></label>
+<input accept=".jpg,.jpeg,.png,.webp,image/*" class="hidden" id="f-cover" type="file"/>
+</div>
+<!-- 03 -->
+<div class="glass-card rounded-3xl p-6 md:p-8">
+<div class="flex items-center justify-between border-b border-white/10 pb-4 mb-6"><div class="flex items-center gap-3"><span class="w-8 h-8 rounded-full bg-[#ff002e]/20 text-[#ff002e] font-extrabold flex items-center justify-center text-sm">03</span><h3 class="text-lg font-bold text-white">Streaming Link &amp; Credits</h3></div><span class="text-xs text-zinc-400">Optional</span></div>
+<div class="grid grid-cols-1 gap-4">
+<div><label class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">Streaming Link (if released)</label><input class="w-full px-4 py-3 rounded-2xl bg-white/5 border border-white/10 focus:border-[#ff002e] focus:outline-none text-white text-sm" id="f-stream" maxlength="500" placeholder="Spotify / YouTube" type="url"/></div>
+<div><label class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">Credits</label><input class="w-full px-4 py-3 rounded-2xl bg-white/5 border border-white/10 focus:border-[#ff002e] focus:outline-none text-white text-sm" id="f-credits" maxlength="500" placeholder="Producer, writer, vocalist..." type="text"/></div>
+</div>
+</div>
+<!-- 04 -->
+<div class="glass-card rounded-3xl p-6 md:p-8">
+<div class="flex items-center justify-between border-b border-white/10 pb-4 mb-6"><div class="flex items-center gap-3"><span class="w-8 h-8 rounded-full bg-[#ff002e]/20 text-[#ff002e] font-extrabold flex items-center justify-center text-sm">04</span><h3 class="text-lg font-bold text-white">Lyrics</h3></div><span class="text-xs text-zinc-400">Required</span></div>
+<label class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">Official Track Lyrics (you can add Verse/Chorus tags)</label>
+<textarea class="w-full px-4 py-3 rounded-2xl bg-white/5 border border-white/10 focus:border-[#ff002e] focus:outline-none text-white text-xs font-mono mb-4" id="f-lyrics" maxlength="20000" minlength="10" placeholder="[Verse 1]&#10;...&#10;[Chorus]&#10;..." required rows="8"></textarea>
+<label class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">Notes for the team (optional)</label>
+<input class="w-full px-4 py-3 rounded-2xl bg-white/5 border border-white/10 focus:border-[#ff002e] focus:outline-none text-white text-sm" id="f-notes" maxlength="1000" type="text"/>
+<div class="pt-6">
+<label class="flex items-start gap-3 cursor-pointer mb-6"><input class="mt-1 rounded accent-[#ff002e]" id="f-rights" required type="checkbox"/><span class="text-xs text-zinc-400">I own or control the rights to this song, its lyrics and the cover art.</span></label>
+<button class="btn-brand w-full py-4 rounded-full text-white font-bold text-base shadow-xl" id="submit-btn" type="submit">Submit Song</button>
+</div>
+</div>
+</div>
+<div class="space-y-6">
+<div class="glass-card rounded-3xl p-6 lg:sticky lg:top-28">
+<h4 class="font-bold text-white text-base mb-4">What happens next</h4>
+<div class="space-y-5 text-sm">
+<div class="flex items-start gap-3"><div class="w-6 h-6 rounded-full bg-white/10 text-white flex items-center justify-center text-xs font-bold shrink-0">1</div><div><p class="font-bold text-white text-xs">Upload</p><p class="text-zinc-400 text-xs">Your song and details are saved to your account.</p></div></div>
+<div class="flex items-start gap-3"><div class="w-6 h-6 rounded-full bg-white/10 text-white flex items-center justify-center text-xs font-bold shrink-0">2</div><div><p class="font-bold text-white text-xs">Review</p><p class="text-zinc-400 text-xs">The NVN team listens to your song and reviews your details.</p></div></div>
+<div class="flex items-start gap-3"><div class="w-6 h-6 rounded-full bg-white/10 text-white flex items-center justify-center text-xs font-bold shrink-0">3</div><div><p class="font-bold text-white text-xs">Decision</p><p class="text-zinc-400 text-xs">You get a notification and a message from the team.</p></div></div>
+<div class="flex items-start gap-3"><div class="w-6 h-6 rounded-full bg-white/10 text-white flex items-center justify-center text-xs font-bold shrink-0">4</div><div><p class="font-bold text-white text-xs">Lyric video</p><p class="text-zinc-400 text-xs">Accepted songs are made into a lyric video for the channel.</p></div></div>
+</div>
+<div class="mt-6 pt-5 border-t border-white/10 text-center">
+<p class="text-xs text-zinc-400 mb-3">Questions about your submission?</p>
+<a class="inline-block px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-xs text-zinc-300 hover:text-white font-medium" href="mailto:suport.nvn@gmail.com">suport.nvn@gmail.com</a>
+</div>
+</div>
+</div>
+</form>
+</section>
+<!-- DASHBOARD -->
+<section class="view-panel hidden transition-opacity duration-300" id="section-dashboard">
+<div class="glass-card rounded-3xl p-6 md:p-8 mb-6 flex flex-col md:flex-row md:items-center justify-between gap-6">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-tr from-[#ff002e] to-[#ff0051] flex items-center justify-center text-2xl md:text-3xl font-extrabold text-white shrink-0" id="dash-avatar">A</div>
+<div>
+<h2 class="text-2xl md:text-3xl font-extrabold text-white tracking-tight" id="dash-title">Welcome back</h2>
+<p class="text-xs text-zinc-400 mt-1" id="dash-sub"></p>
+</div>
+</div>
+<div class="db-actions">
+<button class="btn-brand px-6 py-3 rounded-full text-white font-bold text-sm shadow-lg" onclick="switchSection('submit')">+ New Submission</button>
+<button class="px-5 py-3 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-sm font-semibold text-zinc-300 hover:text-white" onclick="logout()">Log out</button>
+</div>
+</div>
+<div id="db-alert"></div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-3.5 mb-8" id="dash-stats"></div>
+<div class="space-y-4 mb-16">
+<div class="flex items-center justify-between"><h3 class="font-bold text-lg text-white">Your songs</h3><span class="text-xs text-zinc-400">Updates when the NVN team reviews your song</span></div>
+<div class="db-tools hidden" id="db-tools"><div class="db-chips" id="db-chips"></div><input class="db-search" id="db-search" type="search" placeholder="Search your songs" oninput="dbQ=this.value;drawDash()"/></div>
+<div class="space-y-4" id="dash-list"></div>
+</div>
+</section>
+<!-- NOTIFICATIONS -->
+<section class="view-panel hidden transition-opacity duration-300" id="section-notifications">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+<div>
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#ff002e]/10 border border-[#ff002e]/30 text-xs font-bold text-[#ff002e] uppercase mb-1">Activity Feed</div>
+<h2 class="text-3xl font-extrabold text-white tracking-tight">Notifications</h2>
+</div>
+<button class="px-4 py-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-semibold text-zinc-300 hover:text-white self-start" onclick="markAllNotificationsRead()">Mark all as read</button>
+</div>
+<div class="grid grid-cols-2 gap-3 mb-6 max-w-md">
+<div class="glass-card rounded-2xl p-3.5"><span class="text-[11px] text-zinc-400 uppercase font-semibold">Unread</span><p class="text-xl font-bold text-[#ff002e] mt-0.5" id="unread-count-badge">0</p></div>
+<div class="glass-card rounded-2xl p-3.5"><span class="text-[11px] text-zinc-400 uppercase font-semibold">Total</span><p class="text-xl font-bold text-white mt-0.5" id="total-count-badge">0</p></div>
+</div>
+<div class="db-chips" id="nf-tabs" style="margin-bottom:14px"></div>
+<div class="space-y-3.5 mb-16" id="notif-list"></div>
+</section>
+<!-- GUIDELINES -->
+<section class="view-panel hidden transition-opacity duration-300 mb-16" id="section-guidelines">
+<div class="mb-2"><h2 class="text-3xl font-extrabold text-white tracking-tight">Submission Guidelines &amp; FAQ</h2><p class="text-zinc-400 text-sm mt-1">Everything you need to know before and after you submit.</p></div>
+<div class="pg-box" style="margin-top:28px"><b>Submission checklist</b><br/>Audio file ready (MP3, WAV, FLAC, M4A, AAC or OGG, up to 50 MB) • Official lyrics • Correct artist name and credits • Rights confirmed for music, lyrics and artwork</div><div class="hx-head" style="margin-top:28px"><i></i><h3>Before you submit</h3></div><div class="hx-faq"><details><summary>Is there a fee to submit?</summary><p>No. Creating an account and submitting a song is free.</p></details><details><summary>Which audio files are supported?</summary><p>MP3, WAV, FLAC, M4A, AAC and OGG, up to 50 MB. WAV or FLAC gives the best result, or MP3 at 320 kbps.</p></details><details><summary>What cover art can I upload?</summary><p>Cover art is optional. Use a JPG, PNG or WebP image under 5 MB that you own or are licensed to use.</p></details><details><summary>Do I need to own the song?</summary><p>Yes. You must own or control the rights to the music, lyrics and cover art. See our Copyright &amp; Takedown Policy for details.</p></details><details><summary>Which genres do you feature?</summary><p>We focus on Brazilian Funk, Phonk, Montagem, Pop, K-pop and Electronic music. Other genres are welcome and are reviewed individually.</p></details></div><div class="hx-head" style="margin-top:28px"><i></i><h3>Review and decision</h3></div><div class="hx-faq"><details><summary>How long does the review take?</summary><p>The NVN team usually responds within 3–5 days. This is an estimate, and busy periods may take longer.</p></details><details><summary>How will I know the result?</summary><p>The status updates on your dashboard and you receive a notification with a message from the team.</p></details><details><summary>What if my song is declined?</summary><p>Read the team’s message, improve your song, and use “Edit &amp; resubmit” on your dashboard to submit it again.</p></details></div><div class="hx-head" style="margin-top:28px"><i></i><h3>After acceptance</h3></div><div class="hx-faq"><details><summary>What happens if my song is accepted?</summary><p>We produce a lyric video and publish it on the NVN Music YouTube channel.</p></details><details><summary>Can I ask for my video to be removed?</summary><p>Yes. Email <a class="pg-link" href="mailto:suport.nvn@gmail.com">suport.nvn@gmail.com</a> from your account email address and we will remove it.</p></details></div><div class="hx-head" style="margin-top:28px"><i></i><h3>Account and privacy</h3></div><div class="hx-faq"><details><summary>I forgot my password. What should I do?</summary><p>Choose “Forgot password?” on the login page and follow the link sent to your email address.</p></details><details><summary>How is my data used?</summary><p>Please read our Privacy Policy. We do not sell your personal information.</p></details></div><p class="text-sm text-zinc-400" style="margin-top:24px">Still have a question? <a class="pg-link" href="#contact" onclick="switchSection('contact');return false">Contact our team</a>.</p>
+</section>
+<!-- ABOUT -->
+<section class="view-panel hidden transition-opacity duration-300 mb-16" id="section-about">
+<div class="glass-card rounded-3xl p-6 md:p-10 max-w-3xl mx-auto lg"><h2>About NVN Music</h2><p class="lg-lead">NVN Music is a YouTube channel and submission platform that produces lyric videos for artists and music lovers around the world.</p><h4>What we do</h4><p>Artists submit their songs through this platform. Our team reviews every submission, and accepted songs are produced as lyric videos and published on the NVN Music YouTube channel.</p><h4>Our reach</h4><p>The channel has more than 147,000 subscribers and over 53 million views, with listeners across the world.</p><h4>Genres we feature</h4><p>Brazilian Funk, Phonk, Montagem, Pop, K-pop and Electronic music.</p><h4>Our mission</h4><p>We are working towards 1 million subscribers, and we want to grow together with the artists we feature.</p><h4>Part of NVN Social Groups</h4><p>NVN Music is a brand of NVN Social Groups. <a href="#nvn" onclick="switchSection('nvn');return false">Learn more about NVN Social Groups</a>.</p><div class="lg-foot">Ready to be featured? <a href="#submit" onclick="switchSection('submit');return false">Submit your song</a></div></div>
+</section>
+<!-- CONTACT -->
+<section class="view-panel hidden transition-opacity duration-300 mb-16" id="section-contact">
+<div class="glass-card rounded-3xl p-6 md:p-10 max-w-3xl mx-auto lg"><h2>Contact Us</h2><p class="lg-lead">Our team is available by email. We aim to reply within 3–5 days.</p><h4>General and submission support</h4><p>Email <a href="mailto:suport.nvn@gmail.com">suport.nvn@gmail.com</a>. Please include your artist name and song title so we can find your submission quickly.</p><p>Artists with an account can also <a href="#messages" onclick="switchSection('messages');return false">message the team directly</a> and see replies in real time.</p><h4>Copyright and content concerns</h4><p>See our <a href="#copyright" onclick="switchSection('copyright');return false">Copyright &amp; Takedown Policy</a> and send your notice to the same address.</p><h4>Privacy requests</h4><p>To access, correct or delete your data, email us from your account email address.</p><h4>Partnerships and sponsorships</h4><p>Brands and creators interested in working with NVN Music or NVN Social Groups can write to the same address with a short description of the proposal.</p><h4>YouTube</h4><p><a href="https://www.youtube.com/@NVN_Music" rel="noopener" target="_blank">youtube.com/@NVN_Music</a></p></div>
+</section>
+<!-- COPYRIGHT -->
+<section class="view-panel hidden transition-opacity duration-300 mb-16" id="section-copyright">
+<div class="glass-card rounded-3xl p-6 md:p-10 max-w-3xl mx-auto lg"><h2>Copyright &amp; Takedown Policy</h2><p class="lg-meta">Last updated: 6 October 2026</p><p class="lg-lead">NVN Music respects the rights of creators and rights holders and responds promptly to valid notices of alleged infringement.</p><h4>1. Submitting content</h4><p>Only submit songs, lyrics and cover art that you own or have permission to use. Every submission requires you to confirm this.</p><h4>2. Reporting infringement</h4><p>If you believe content on NVN Music or on our YouTube channel infringes your rights, email <a href="mailto:suport.nvn@gmail.com">suport.nvn@gmail.com</a> with:</p><ul><li>your full name and contact details;</li><li>a description of the work you own and proof of ownership;</li><li>the URL or title of the content you believe infringes;</li><li>a statement that you are the rights holder or authorised to act for them, and that the information you provide is accurate.</li></ul><h4>3. How we respond</h4><p>We review each notice and may remove or disable access to the content while we investigate. We may share the notice with the person who submitted the content so they can respond.</p><h4>4. Objections</h4><p>If your content was removed and you believe this was a mistake, email us with your account details and evidence of your rights. We will review it in good faith.</p><h4>5. Repeat infringement</h4><p>Accounts that repeatedly submit infringing content, or that make knowingly false claims, may be suspended or closed.</p><h4>6. Artist removal requests</h4><p>If your song was accepted and you would like the lyric video removed, email us from your account email address and we will take it down.</p></div>
+</section>
+<!-- CONTENT -->
+<section class="view-panel hidden transition-opacity duration-300 mb-16" id="section-content">
+<div class="glass-card rounded-3xl p-6 md:p-10 max-w-3xl mx-auto lg"><h2>Content Policy</h2><p class="lg-meta">Last updated: 6 October 2026</p><p class="lg-lead">This policy sets out what may be submitted to NVN Music. The NVN team applies it to every submission and to published content.</p><h4>1. Not permitted</h4><ul><li>Content you do not own or have permission to use.</li><li>Hate speech, harassment, threats or content that promotes violence.</li><li>Sexual content involving minors, or other illegal content.</li><li>Content that exposes private information or impersonates another person or artist.</li><li>Spam, misleading credits, or repeated duplicate submissions.</li></ul><h4>2. Lyrics and artwork</h4><p>Lyrics must match the submitted song. Cover art must be your own work or properly licensed and must not use others’ logos or trademarks without permission.</p><h4>3. Accuracy</h4><p>Artist names, credits and links must be accurate. Do not submit under another person’s name.</p><h4>4. Enforcement</h4><p>The NVN team may decline a submission, remove published content, or suspend an account that breaches this policy. Decisions are made in good faith, and you can contact us at <a href="mailto:suport.nvn@gmail.com">suport.nvn@gmail.com</a> to ask for a review.</p></div>
+</section>
+<!-- COOKIES -->
+<section class="view-panel hidden transition-opacity duration-300 mb-16" id="section-cookies">
+<div class="glass-card rounded-3xl p-6 md:p-10 max-w-3xl mx-auto lg"><h2>Cookies &amp; Storage Policy</h2><p class="lg-meta">Last updated: 6 October 2026</p><p class="lg-lead">This page explains what information is stored in your browser and which third-party services load when you use NVN Music.</p><h4>1. Essential storage</h4><p>To keep you logged in, your browser stores an authentication session issued by our login provider (Supabase). This is required for the platform to work. We do not use advertising cookies or cross-site tracking.</p><h4>2. Third-party services</h4><p>The site loads fonts from Google Fonts and code libraries from jsDelivr. These providers may receive your IP address and browser details when the page loads.</p><h4>3. Your choices</h4><p>You can log out at any time, or clear your browser storage to remove the session. Blocking essential storage will prevent you from logging in.</p><h4>4. Contact</h4><p>Questions can be sent to <a href="mailto:suport.nvn@gmail.com">suport.nvn@gmail.com</a>.</p></div>
+</section>
+
+<section class="view-panel hidden transition-opacity duration-300 mb-16" id="section-nvn">
+<div class="glass-card rounded-3xl p-6 md:p-10 max-w-3xl mx-auto lg"><h2>NVN Social Groups</h2><p class="lg-lead">NVN Social Groups is the organisation behind NVN Music and other NVN digital brands and communities.</p><h4>Who we are</h4><p>NVN Social Groups builds and operates online platforms and communities centred on music, creativity and social media. Each NVN brand has its own focus, and all share the same standards of quality, transparency and respect for creators.</p><h4>Our brands</h4><ul><li><b>NVN Music</b> is our lyric video channel and artist submission platform, with 147K+ YouTube subscribers and 53M+ views.</li></ul><h4>Our principles</h4><ul><li><b>Creator first:</b> artists keep ownership of their work.</li><li><b>Transparency:</b> clear review status, clear decisions and clear policies.</li><li><b>Quality:</b> every published video meets a consistent standard.</li><li><b>Respect for rights:</b> we act promptly on copyright and content concerns.</li></ul><h4>Contact</h4><p>For partnerships, sponsorships and general enquiries, email <a href="mailto:suport.nvn@gmail.com">suport.nvn@gmail.com</a>.</p></div>
+</section>
+<!-- MESSAGES -->
+<section class="view-panel hidden transition-opacity duration-300 mb-16" id="section-messages">
+<div class="mb-5">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#ff002e]/10 border border-[#ff002e]/30 text-xs font-bold text-[#ff002e] uppercase mb-1">Support</div>
+<h2 class="text-3xl font-extrabold text-white tracking-tight">Messages</h2>
+<p class="text-sm text-zinc-400 mt-1">Talk directly with the NVN team about your submissions or any other topic. Replies appear here automatically.</p>
+</div>
+<div class="ch-panel">
+<div class="ch-head"><div class="ch-av">N</div><div class="ch-hd"><b>NVN Team</b><small>Usually replies within 3–5 days</small></div><span class="ch-live" id="ch-live"><i></i><em>Live</em></span></div>
+<div class="ch-list" id="ch-list"></div>
+<button class="ch-new hidden" id="ch-new" onclick="chScroll()">New messages ↓</button>
+<div class="ch-att hidden" id="ch-att"></div>
+<div class="ch-comp">
+<button class="ch-ic" aria-label="Attach a file" onclick="document.getElementById('ch-file').click()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.4 11.1l-9.2 9.2a6 6 0 0 1-8.5-8.5l9.2-9.2a4 4 0 0 1 5.7 5.7l-9.2 9.2a2 2 0 0 1-2.8-2.8l8.5-8.5"/></svg></button>
+<input class="hidden" id="ch-file" type="file" accept=".jpg,.jpeg,.png,.webp,.gif,.pdf,.txt,.doc,.docx,.xls,.xlsx,.zip,.mp3,.wav,.m4a,.mp4"/>
+<textarea id="ch-in" rows="1" maxlength="4000" placeholder="Write a message" aria-label="Message"></textarea>
+<button class="ch-send" id="ch-send" aria-label="Send message" onclick="chSend()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></button>
+</div>
+<p class="ch-hint">Attach images or files up to 10 MB: JPG, PNG, WebP, GIF, PDF, DOC, DOCX, XLS, XLSX, TXT, ZIP, MP3, WAV, M4A, MP4.</p>
+</div>
+</section>
+<!-- LOGIN -->
+<section class="view-panel hidden transition-opacity duration-300 mb-16" id="section-login">
+<div class="glass-card rounded-3xl p-6 md:p-8 max-w-xl mx-auto">
+<h2 class="text-3xl font-extrabold text-white tracking-tight mb-1">Welcome back</h2>
+<p class="text-sm text-zinc-400 mb-6">Log in to track your submissions.</p>
+<form class="space-y-4" id="login-form"><div class="hidden p-3.5 rounded-2xl bg-[#ff002e]/10 border border-[#ff002e]/30 text-sm text-rose-300" id="login-error" role="alert"></div><div><label class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">Email</label><input autocomplete="email" class="w-full px-4 py-3 rounded-2xl bg-white/5 border border-white/10 focus:border-[#ff002e] focus:outline-none text-white text-sm" id="login-email" required type="email"/></div><div><label class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">Password</label><input autocomplete="current-password" class="w-full px-4 py-3 rounded-2xl bg-white/5 border border-white/10 focus:border-[#ff002e] focus:outline-none text-white text-sm" id="login-pass" required type="password"/></div><button class="btn-brand w-full py-3.5 rounded-full text-white font-bold" id="login-btn" type="submit">Log in</button><p class="text-center text-xs"><button class="text-zinc-400 hover:text-white underline" onclick="forgotPassword()" type="button">Forgot password?</button></p></form>
+<p class="text-center text-xs text-zinc-400 mt-5">New here? <button class="text-[#ff002e] underline" onclick="switchSection('signup')" type="button">Create an account</button></p>
+</div>
+</section>
+<!-- SIGNUP -->
+<section class="view-panel hidden transition-opacity duration-300 mb-16" id="section-signup">
+<div class="glass-card rounded-3xl p-6 md:p-8 max-w-xl mx-auto">
+<h2 class="text-3xl font-extrabold text-white tracking-tight mb-1">Create your account</h2>
+<p class="text-sm text-zinc-400 mb-6">Please provide your details so the NVN team can verify your submissions and contact you.</p>
+<form class="space-y-4" id="signup-form"><div class="hidden p-3.5 rounded-2xl bg-[#ff002e]/10 border border-[#ff002e]/30 text-sm text-rose-300" id="signup-error" role="alert"></div><div class="grid grid-cols-1 sm:grid-cols-2 gap-4"><div><label class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">Full / artist name *</label><input class="w-full px-4 py-3 rounded-2xl bg-white/5 border border-white/10 focus:border-[#ff002e] focus:outline-none text-white text-sm" id="su-name" maxlength="100" required type="text"/></div><div><label class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">Email *</label><input autocomplete="email" class="w-full px-4 py-3 rounded-2xl bg-white/5 border border-white/10 focus:border-[#ff002e] focus:outline-none text-white text-sm" id="su-email" required type="email"/></div></div><div><label class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">Password * (min 8 characters)</label><input autocomplete="new-password" class="w-full px-4 py-3 rounded-2xl bg-white/5 border border-white/10 focus:border-[#ff002e] focus:outline-none text-white text-sm" id="su-pass" minlength="8" required type="password"/></div><div class="grid grid-cols-1 sm:grid-cols-2 gap-4"><div><label class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">Country *</label><button class="cbtn" id="su-country-btn" data-target="su-country" type="button" aria-haspopup="dialog"><span class="cb-label">Select country</span><svg class="cb-chev" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg></button><input id="su-country" type="hidden"/></div><div><label class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">I am a</label><select class="w-full px-4 py-3 rounded-2xl bg-[#141418] border border-white/10 focus:border-[#ff002e] focus:outline-none text-white text-sm" id="su-type"></select></div><div><label class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">Phone / WhatsApp</label><input class="w-full px-4 py-3 rounded-2xl bg-white/5 border border-white/10 focus:border-[#ff002e] focus:outline-none text-white text-sm" id="su-phone" maxlength="30" type="tel"/></div><div><label class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">Main social link</label><input class="w-full px-4 py-3 rounded-2xl bg-white/5 border border-white/10 focus:border-[#ff002e] focus:outline-none text-white text-sm" id="su-social" maxlength="300" placeholder="YouTube / Instagram / Spotify" type="url"/></div></div><div><label class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">Short bio</label><textarea class="w-full px-4 py-3 rounded-2xl bg-white/5 border border-white/10 focus:border-[#ff002e] focus:outline-none text-white text-sm" id="su-bio" maxlength="600" rows="3"></textarea></div><label class="flex items-start gap-3 cursor-pointer"><input class="mt-1 rounded accent-[#ff002e]" required type="checkbox"/><span class="text-xs text-zinc-400">I agree to the <button class="text-[#ff002e] underline" onclick="switchSection('terms')" type="button">Terms of Service</button> and <button class="text-[#ff002e] underline" onclick="switchSection('privacy')" type="button">Privacy Policy</button>.</span></label><button class="btn-brand w-full py-3.5 rounded-full text-white font-bold" id="signup-btn" type="submit">Create account</button></form>
+<p class="text-center text-xs text-zinc-400 mt-5">Already have an account? <button class="text-[#ff002e] underline" onclick="switchSection('login')" type="button">Log in</button></p>
+</div>
+</section>
+<!-- PRIVACY -->
+<section class="view-panel hidden transition-opacity duration-300 mb-16" id="section-privacy">
+<div class="glass-card rounded-3xl p-6 md:p-10 max-w-3xl mx-auto lg"><h2>Privacy Policy</h2><p class="lg-meta">Last updated: 6 October 2026</p><p class="lg-lead">This policy explains what personal information NVN Music, a brand of NVN Social Groups (“NVN”, “we”, “us”), collects when you use this platform, how we use it, and the choices you have.</p><h4>1. Information we collect</h4><p>We collect only what we need to operate the platform:</p><ul><li><b>Account details:</b> name or artist name, email address, country, account type, and optionally a phone or WhatsApp number, a social media link and a short biography.</li><li><b>Submission content:</b> audio files, cover art, lyrics, credits, streaming links, release dates and notes you provide for the review team.</li><li><b>Communications:</b> messages and file attachments you exchange with the NVN team through the Messages feature, decisions on your submissions, and emails you send to us.</li><li><b>Technical data:</b> a login session stored in your browser, and basic technical information (such as IP address) processed by our service providers when you load or use the site.</li></ul><h4>2. How we use your information</h4><ul><li>To create and secure your account and authenticate you.</li><li>To review your submissions and communicate decisions to you.</li><li>To produce and publish a lyric video if your song is accepted.</li><li>To respond to support, copyright and privacy requests.</li><li>To protect the platform against misuse, fraud and unauthorised access, and to meet legal obligations.</li></ul><h4>3. What becomes public</h4><p>Your account and unpublished submissions are not public. If a song is accepted, the song, artist name, lyrics and related credits may appear in a lyric video on the NVN Music YouTube channel. Content published on YouTube is also subject to YouTube’s own terms and privacy policy.</p><h4>4. Sharing and service providers</h4><p>We do not sell your personal information. We share it only with service providers that help us run the platform, and when required by law:</p><ul><li><b>Supabase</b> for authentication, database and file storage.</li><li><b>Google Fonts</b> and <b>jsDelivr</b> to deliver fonts and code libraries, which may receive your IP address when the page loads.</li><li><b>YouTube</b> when an accepted song is published.</li></ul><h4>5. Data security</h4><p>Your data is stored in a managed database with row-level security. Uploaded audio and cover files are kept in private storage, accessible only to you and authorised NVN team members. No online service can guarantee absolute security, so please use a strong, unique password.</p><h4>6. Retention</h4><p>We keep your account information and submissions while your account is active and for as long as needed to maintain our records, handle disputes and comply with legal obligations. You can ask us to delete your account and associated data at any time.</p><h4>7. Your rights</h4><p>You may request access to, correction of, or deletion of your personal information, or object to certain uses of it, by contacting us at <a href="mailto:suport.nvn@gmail.com">suport.nvn@gmail.com</a>. We may need to verify your identity before acting on a request.</p><h4>8. Children</h4><p>NVN Music is intended for users aged 13 and over. If you believe a child under 13 has provided us with personal information, please contact us and we will delete it.</p><h4>9. International processing</h4><p>Our service providers may process data in countries other than your own. By using the platform you understand that your information may be transferred to and processed in those locations.</p><h4>10. Changes to this policy</h4><p>We may update this policy from time to time. The “Last updated” date shows when it last changed. Continued use of the platform after an update means you accept the revised policy.</p><h4>11. Contact</h4><p>Questions about privacy can be sent to <a href="mailto:suport.nvn@gmail.com">suport.nvn@gmail.com</a>.</p></div>
+</section>
+<!-- TERMS -->
+<section class="view-panel hidden transition-opacity duration-300 mb-16" id="section-terms">
+<div class="glass-card rounded-3xl p-6 md:p-10 max-w-3xl mx-auto lg"><h2>Terms of Service</h2><p class="lg-meta">Last updated: 6 October 2026</p><p class="lg-lead">These Terms govern your use of NVN Music, a brand of NVN Social Groups (“NVN”, “we”, “us”). By creating an account or submitting a song you agree to these Terms and to our Privacy Policy.</p><h4>1. Eligibility and accounts</h4><p>You must be at least 13 years old, and if you are under the age of majority where you live you must have permission from a parent or guardian. You agree to provide accurate information, keep your login secure, and take responsibility for activity on your account.</p><h4>2. Your submissions</h4><p>You retain ownership of your music, lyrics and artwork. By submitting, you confirm that:</p><ul><li>you own or control all rights needed to submit the song, lyrics and cover art;</li><li>your submission does not infringe any third party’s copyright, trademark, privacy or other rights;</li><li>the information and credits you provide are accurate.</li></ul><h4>3. Licence to review and publish</h4><p>You grant NVN a non-exclusive licence to store and review your submission. If your song is accepted, you also grant NVN a non-exclusive, worldwide licence to produce a lyric video of it and publish and promote that video on the NVN Music YouTube channel and related NVN social media. This licence ends when you ask us to remove the video, subject to the time platforms need to process removals.</p><h4>4. Review decisions</h4><p>The NVN team may accept or decline any submission at its sole discretion. Submitting a song does not guarantee acceptance, a lyric video or a publication date. Review times of 3–5 days are an estimate, not a commitment.</p><h4>5. No payment obligation</h4><p>Unless we agree otherwise in writing, submitting or being accepted does not entitle either party to payment, and NVN Music does not charge a submission fee.</p><h4>6. Acceptable use</h4><p>You must follow our Content Policy and must not misuse the platform, attempt to access other users’ data, interfere with its operation, or submit content that is unlawful or that you have no right to use.</p><h4>7. Removal and enforcement</h4><p>We may remove content, decline submissions, or suspend or close accounts that breach these Terms or the Content Policy. You may request removal of your accepted content at any time by emailing us from your account email address.</p><h4>8. Third-party platforms</h4><p>Published videos are hosted on YouTube and are subject to YouTube’s terms, policies and automated systems, including copyright claims. NVN is not responsible for actions taken by third-party platforms.</p><h4>9. Disclaimer and liability</h4><p>The platform is provided “as is” and “as available”. To the extent permitted by law, NVN is not liable for indirect or consequential losses, or for loss of data, revenue or opportunity arising from your use of the platform.</p><h4>10. Changes to these Terms</h4><p>We may update these Terms from time to time. Continued use of the platform after changes take effect means you accept the updated Terms.</p><h4>11. Contact</h4><p>Questions about these Terms can be sent to <a href="mailto:suport.nvn@gmail.com">suport.nvn@gmail.com</a>.</p></div>
+</section>
+</main>
+<!-- ========================================== -->
+<!-- 7CLOUDS STYLE LUXURY FOOTER                -->
+<!-- ========================================== -->
+<footer class="max-w-6xl mx-auto px-4 md:px-6 mt-12 mb-8">
+<div class="glass-card rounded-[32px] p-8 md:p-14 relative overflow-hidden border border-white/10">
+<div class="footer-glow absolute top-0 right-0 w-80 h-80 rounded-full pointer-events-none"></div>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 relative z-10 mb-12">
+<div class="space-y-3">
+<div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-gradient-to-tr from-[#ff002e] to-[#ff0051] flex items-center justify-center"><svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg></div><span class="font-extrabold text-white text-base tracking-tight">NVN MUSIC</span></div>
+<p class="text-xs text-zinc-400 leading-relaxed">Lyric video production and publishing for artists. Submit your song and follow the review from your dashboard.</p>
+<p class="text-xs text-zinc-500">A brand of <button class="underline hover:text-white" onclick="switchSection('nvn')">NVN Social Groups</button></p>
+<p class="text-[11px] text-zinc-500 pt-2"><a class="text-zinc-300 hover:text-[#ff002e] transition-colors underline" href="mailto:suport.nvn@gmail.com">suport.nvn@gmail.com</a></p>
+</div>
+<div><p class="text-xs uppercase font-bold tracking-wider text-zinc-300 mb-3">Platform</p>
+<ul class="space-y-2 text-xs text-zinc-400">
+<li><button class="hover:text-white transition-colors" onclick="switchSection('home')">Home</button></li>
+<li><button class="hover:text-white transition-colors" onclick="switchSection('submit')">Submit Song</button></li>
+<li><button class="hover:text-white transition-colors" onclick="switchSection('dashboard')">Artist Dashboard</button></li>
+<li><button class="hover:text-white transition-colors" onclick="switchSection('notifications')">Notifications</button></li>
+<li><button class="hover:text-white transition-colors" onclick="switchSection('messages')">Messages</button></li>
+</ul></div>
+<div><p class="text-xs uppercase font-bold tracking-wider text-zinc-300 mb-3">Resources</p>
+<ul class="space-y-2 text-xs text-zinc-400">
+<li><button class="hover:text-white transition-colors" onclick="switchSection('guidelines')">Submission Guidelines</button></li>
+<li><button class="hover:text-white transition-colors" onclick="switchSection('guidelines')">FAQ</button></li>
+<li><button class="hover:text-white transition-colors" onclick="switchSection('about')">About Us</button></li>
+<li><button class="hover:text-white transition-colors" onclick="switchSection('nvn')">NVN Social Groups</button></li>
+<li><button class="hover:text-white transition-colors" onclick="switchSection('contact')">Contact</button></li>
+<li><a class="hover:text-white transition-colors" href="https://www.youtube.com/@NVN_Music" rel="noopener" target="_blank">YouTube Channel</a></li>
+</ul></div>
+<div><p class="text-xs uppercase font-bold tracking-wider text-zinc-300 mb-3">Legal</p>
+<ul class="space-y-2 text-xs text-zinc-400">
+<li><button class="hover:text-white transition-colors" onclick="switchSection('privacy')">Privacy Policy</button></li>
+<li><button class="hover:text-white transition-colors" onclick="switchSection('terms')">Terms of Service</button></li>
+<li><button class="hover:text-white transition-colors" onclick="switchSection('copyright')">Copyright &amp; Takedown</button></li>
+<li><button class="hover:text-white transition-colors" onclick="switchSection('content')">Content Policy</button></li>
+<li><button class="hover:text-white transition-colors" onclick="switchSection('cookies')">Cookies &amp; Storage</button></li>
+</ul></div>
+</div>
+<div class="relative z-10 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-500">
+<p>© <span id="year"></span> NVN Music, a brand of <button class="underline hover:text-white" onclick="switchSection('nvn')">NVN Social Groups</button>. All rights reserved.</p>
+<p class="mt-2 sm:mt-0 font-medium text-zinc-400">NOT JUST MUSIC, IT'S A MOOD.</p>
+</div>
+<div class="absolute -bottom-8 left-1/2 -translate-x-1/2 text-[140px] md:text-[220px] font-black tracking-tighter text-white/[0.025] select-none pointer-events-none leading-none" aria-hidden="true">NVN</div>
+</div>
+</footer>
+<div id="country-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Select country">
+<div class="cm-sheet">
+<div class="cm-head"><h3 id="cm-title">Select country</h3><button class="cm-x" id="cm-close" type="button" aria-label="Close"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"/></svg></button></div>
+<div class="cm-sw" id="cm-sw"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-4.35-4.35M11 18a7 7 0 100-14 7 7 0 000 14z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg><input id="cm-search" type="text" placeholder="Search country" autocomplete="off" autocapitalize="off" spellcheck="false"/></div>
+<div class="cm-list" id="cm-list"></div>
+</div>
+</div>
+<div class="glass-panel rounded-full px-5 py-3 text-sm text-white shadow-2xl" id="toast" role="status"></div>
+<!-- SCRIPT FOR VIEW SWITCHING & RESPONSIVE DRAWER -->
+<script>
+const sb=supabase.createClient('https://tudnvbblhhoxlejaizak.supabase.co','sb_publishable_nsyJxANG1j38PPTx2LG9yQ_rZMrTEze',{auth:{storageKey:'nvn-music-auth'}});
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const SECTIONS=['home','submit','dashboard','notifications','messages','guidelines','login','signup','privacy','terms','about','nvn','contact','copyright','content','cookies'];
+const PROTECTED=['submit','dashboard','notifications','messages'];
+const COUNTRIES=["Afghanistan","Albania","Algeria","Andorra","Angola","Antigua and Barbuda","Argentina","Armenia","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bhutan","Bolivia","Bosnia and Herzegovina","Botswana","Brazil","Brunei","Bulgaria","Burkina Faso","Burundi","Cabo Verde","Cambodia","Cameroon","Canada","Central African Republic","Chad","Chile","China","Colombia","Comoros","Congo (Republic)","Congo (DR)","Costa Rica","Côte d'Ivoire","Croatia","Cuba","Cyprus","Czechia","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Eswatini","Ethiopia","Fiji","Finland","France","Gabon","Gambia","Georgia","Germany","Ghana","Greece","Grenada","Guatemala","Guinea","Guinea-Bissau","Guyana","Haiti","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Israel","Italy","Jamaica","Japan","Jordan","Kazakhstan","Kenya","Kiribati","Kosovo","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macau","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Marshall Islands","Mauritania","Mauritius","Mexico","Micronesia","Moldova","Monaco","Mongolia","Montenegro","Morocco","Mozambique","Myanmar","Namibia","Nauru","Nepal","Netherlands","New Zealand","Nicaragua","Niger","Nigeria","North Korea","North Macedonia","Norway","Oman","Pakistan","Palau","Palestine","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Puerto Rico","Qatar","Romania","Russia","Rwanda","Saint Kitts and Nevis","Saint Lucia","Saint Vincent and the Grenadines","Samoa","San Marino","São Tomé and Príncipe","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Korea","South Sudan","Spain","Sri Lanka","Sudan","Suriname","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor-Leste","Togo","Tonga","Trinidad and Tobago","Tunisia","Turkey","Turkmenistan","Tuvalu","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States","Uruguay","Uzbekistan","Vanuatu","Vatican City","Venezuela","Vietnam","Yemen","Zambia","Zimbabwe","Other"];
+const GENRES=['Pop','Phonk','Brazilian Funk','Montagem','K-pop','Electronic','Hip-Hop','R&B','Rock','Lo-fi','Other'];
+const TYPES=['Solo artist','Band / group','Producer','Label / management','Other'];
+const AEXT=['mp3','wav','flac','m4a','aac','ogg'],IEXT=['jpg','jpeg','png','webp'];
+const ST={pending:{t:'Submitted',c:'sky',b:'border-l-sky-500',p:'bg-sky-500/20 text-sky-400'},in_review:{t:'In Review',c:'amber',b:'border-l-amber-500',p:'bg-amber-500/20 text-amber-400'},accepted:{t:'Accepted',c:'emerald',b:'border-l-emerald-500',p:'bg-emerald-500/20 text-emerald-400'},declined:{t:'Declined',c:'rose',b:'border-l-rose-500',p:'bg-rose-500/20 text-rose-400'},published:{t:'Published',c:'violet',b:'border-l-violet-500',p:'bg-violet-500/20 text-violet-400'}};
+let user=null,profile=null,unread=0,chan=null,current='home';
+const fmt=d=>new Date(d).toLocaleDateString(undefined,{day:'numeric',month:'short',year:'numeric'});
+const opts=(a,sel)=>a.map(c=>`<option ${c===sel?'selected':''}>${esc(c)}</option>`).join('');
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('on'),3400)}
+function fe(e){const m=((e&&e.message)||'').toLowerCase();
+ if(m.includes('invalid login'))return 'Incorrect email or password.';
+ if(m.includes('already registered')||m.includes('already been registered'))return 'An account with this email address already exists.';
+ if(m.includes('not confirmed'))return 'Please confirm your email address before logging in.';
+ if(m.includes('password')&&m.includes('least'))return 'Your password must be at least 8 characters.';
+ if(m.includes('rate limit')||m.includes('too many'))return 'Too many attempts. Please wait a moment and try again.';
+ if(m.includes('fetch')||m.includes('network'))return 'Connection problem. Please check your internet connection and try again.';
+ return 'Something went wrong. Please try again.'}
+function showErr(id,m){const e=$('#'+id);e.textContent=m||'';e.classList.toggle('hidden',!m)}
+function btnBusy(b,on,txt){if(on){b.dataset.t=b.textContent;b.textContent=txt;b.disabled=true;b.classList.add('opacity-60')}else{b.textContent=b.dataset.t||b.textContent;b.disabled=false;b.classList.remove('opacity-60')}}
+
+/* ---------- navigation ---------- */
+function switchSection(id,fromHash){
+  if(PROTECTED.includes(id)&&!user){toast('Please log in to continue');id='login'}
+  if((id==='login'||id==='signup')&&user)id='dashboard';
+  current=id;
+  SECTIONS.forEach(x=>{const el=$('#section-'+x);if(el)el.classList.toggle('hidden',x!==id)});
+  SECTIONS.forEach(x=>{const b=$('#tab-btn-'+x);if(b)b.className='px-4 py-1.5 rounded-full transition-all '+(x===id?'nav-tab-active':'text-zinc-400 hover:text-white')+(x==='notifications'||x==='messages'?' relative':'')});
+  navFocus(id);
+  if(!fromHash&&location.hash!=='#'+id)history.pushState(null,'','#'+id);
+  window.scrollTo(0,0);
+  if(id==='dashboard')renderDashboard();
+  if(id==='notifications')renderNotifications();
+  if(id==='submit')prefillSubmit();
+  if(id==='messages')openChat();else stopChat();
+}
+function navFade(){const n=$('#main-nav');if(!n)return;const max=n.scrollWidth-n.clientWidth;n.classList.toggle('fade-l',max>2&&n.scrollLeft>4);n.classList.toggle('fade-r',max>2&&n.scrollLeft<max-4)}
+function navFocus(id){const n=$('#main-nav'),b=$('#tab-btn-'+id);if(!n||!b||!n.clientWidth)return;n.scrollTo({left:Math.max(0,b.offsetLeft-(n.clientWidth-b.offsetWidth)/2),behavior:'smooth'});setTimeout(navFade,350)}
+(function(){const n=$('#main-nav');if(!n)return;n.addEventListener('scroll',navFade,{passive:true});addEventListener('resize',navFade);
+  /* mouse wheel scrolls the tabs sideways on desktop */
+  n.addEventListener('wheel',e=>{if(Math.abs(e.deltaY)>Math.abs(e.deltaX)&&n.scrollWidth>n.clientWidth){n.scrollLeft+=e.deltaY;e.preventDefault()}},{passive:false});
+  if(window.ResizeObserver)new ResizeObserver(navFade).observe(n);setTimeout(navFade,0)})();
+addEventListener('popstate',()=>switchSection(SECTIONS.includes(location.hash.slice(1))?location.hash.slice(1):'home',true));
+function toggleMobileDrawer(){const d=$('#mobile-drawer'),open=d.classList.contains('opacity-0');
+  d.classList.toggle('opacity-0',!open);d.classList.toggle('pointer-events-none',!open);
+  $('#menu-icon-bars').classList.toggle('hidden',open);$('#menu-icon-close').classList.toggle('hidden',!open)}
+function mobileNavTo(id){toggleMobileDrawer();switchSection(id)}
+
+/* ---------- session + header ---------- */
+async function loadSession(){
+  const{data:{session}}=await sb.auth.getSession();user=session?.user||null;profile=null;unread=0;
+  if(user){const[pr,uc]=await Promise.all([sb.from('profiles').select('*').eq('id',user.id).maybeSingle(),sb.from('notifications').select('id',{count:'exact',head:true}).eq('read',false)]);profile=pr.data;unread=uc.count||0;if(profile&&profile.is_admin){await sb.auth.signOut();user=null;profile=null;unread=0;adminBlocked=true}else listen()}
+  else if(chan){sb.removeChannel(chan);chan=null}
+  if(user)msgBg();else setMsgDot(false);
+  renderHeader();
+}
+async function countUnread(){const{count}=await sb.from('notifications').select('id',{count:'exact',head:true}).eq('read',false);unread=count||0}
+function listen(){if(chan)return;chan=sb.channel('nt-'+user.id).on('postgres_changes',{event:'INSERT',schema:'public',table:'notifications',filter:'user_id=eq.'+user.id},p=>{unread++;renderHeader();toast(p.new.title);if(current==='notifications')renderNotifications();if(current==='dashboard')renderDashboard()}).subscribe()}
+function renderHeader(){
+  const name=(profile?.full_name||user?.email||'').trim(),ini=(name[0]||'A').toUpperCase();
+  $('#hdr-user').innerHTML=user?`<div class="cursor-pointer flex items-center gap-2 p-1 md:pr-3 rounded-full bg-white/5 border border-white/10 hover:border-white/20 transition-all" onclick="switchSection('dashboard')" role="button" aria-label="My dashboard"><span class="w-7 h-7 rounded-full bg-gradient-to-tr from-[#ff002e] to-[#ff0051] flex items-center justify-center text-xs font-bold text-white">${esc(ini)}</span><span class="hidden md:inline text-xs font-semibold text-zinc-200">${esc(name.split(' ')[0])}</span></div>`
+   :`<button class="btn-brand px-4 py-2 rounded-full text-white text-xs font-bold" onclick="switchSection('login')">Log in</button>`;
+  $('#bell-btn').classList.toggle('hidden',!user);
+  ['bell-dot','tab-dot','drawer-dot'].forEach(i=>$('#'+i).classList.toggle('hidden',!(user&&unread>0)));
+  $('#drawer-account').innerHTML=user?`<div class="flex items-center gap-3"><span class="w-10 h-10 rounded-full bg-gradient-to-tr from-[#ff002e] to-[#ff0051] flex items-center justify-center font-bold text-white">${esc(ini)}</span><div><p class="font-bold text-sm text-white">${esc(name)}</p><p class="text-xs text-zinc-400">${esc(user.email)}</p></div></div><button class="btn-brand w-full py-3 rounded-2xl text-white font-bold text-sm" onclick="mobileNavTo('submit')">Submit a song</button><button class="w-full py-3 rounded-2xl bg-white/5 border border-white/10 text-white font-semibold text-sm" onclick="toggleMobileDrawer();logout()">Log out</button>`
+   :`<button class="btn-brand w-full py-3 rounded-2xl text-white font-bold text-sm" onclick="mobileNavTo('login')">Log in</button><button class="w-full py-3 rounded-2xl bg-white/5 border border-white/10 text-white font-semibold text-sm" onclick="mobileNavTo('signup')">Create account</button>`;
+}
+async function logout(){await sb.auth.signOut();user=null;profile=null;unread=0;if(chan){sb.removeChannel(chan);chan=null}stopChat();chMsgs=[];chSig='';setMsgDot(false);renderHeader();toast('You have been logged out');switchSection('home')}
+
+/* ---------- auth ---------- */
+$('#login-form').onsubmit=async e=>{e.preventDefault();const b=$('#login-btn');showErr('login-error');btnBusy(b,1,'Please wait...');
+  const{error}=await sb.auth.signInWithPassword({email:$('#login-email').value.trim(),password:$('#login-pass').value});btnBusy(b,0);
+  if(error)return showErr('login-error',fe(error));await loadSession();if(adminBlocked){adminBlocked=false;return showErr('login-error','This account is reserved for the NVN administration panel and cannot be used on NVN Music. Please log in with an artist account.')}toast('Logged in successfully');switchSection('dashboard')};
+$('#signup-form').onsubmit=async e=>{e.preventDefault();const b=$('#signup-btn');showErr('signup-error');
+  if(!$('#su-country').value)return showErr('signup-error','Please select your country.');
+  btnBusy(b,1,'Please wait...');
+  const meta={full_name:$('#su-name').value.trim(),country:$('#su-country').value,artist_type:$('#su-type').value,phone:$('#su-phone').value.trim(),social_link:$('#su-social').value.trim(),bio:$('#su-bio').value.trim()};
+  const{data,error}=await sb.auth.signUp({email:$('#su-email').value.trim(),password:$('#su-pass').value,options:{data:meta}});btnBusy(b,0);
+  if(error)return showErr('signup-error',fe(error));
+  if(!data.session){showErr('signup-error');toast('Check your email and confirm your account, then log in.');return switchSection('login')}
+  await loadSession();toast('Account created successfully');switchSection('dashboard')};
+async function forgotPassword(){const em=$('#login-email').value.trim();if(!em)return showErr('login-error','Enter your email first, then tap "Forgot password?".');
+  const{error}=await sb.auth.resetPasswordForEmail(em,{redirectTo:location.href.split('#')[0]});showErr('login-error',error?fe(error):'');if(!error)toast('A password reset link has been sent to your email address')}
+
+/* ---------- gallery ---------- */
+async function loadGallery(){
+  const g=$('#gallery'),{data,error}=await sb.from('gallery_videos').select('*').order('created_at',{ascending:false});
+  if(error||!data||!data.length){g.innerHTML='<p class="text-sm text-zinc-500 py-10 text-center">Videos coming soon. Watch the full channel on YouTube.</p>';return}
+  let l=data;while(l.length<6)l=l.concat(data);
+  const card=v=>`<a class="min-w-[280px] md:min-w-[340px] glass-card rounded-3xl p-3 group relative block" href="https://www.youtube.com/watch?v=${esc(v.youtube_id)}" rel="noopener" target="_blank"><div class="relative h-44 rounded-2xl overflow-hidden bg-zinc-900 mb-3"><img alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" src="https://i.ytimg.com/vi/${esc(v.youtube_id)}/hqdefault.jpg"/><div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div><span class="absolute top-3 left-3 px-2 py-0.5 rounded-md bg-black/60 text-[10px] font-bold text-white border border-white/10">YouTube</span><div class="absolute inset-0 flex items-center justify-center opacity-90 group-hover:opacity-100"><div class="w-11 h-11 rounded-full bg-[#ff002e] flex items-center justify-center text-white shadow-xl shadow-[#ff002e]/50 transform group-hover:scale-110 transition-transform"><svg class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div></div></div><div class="px-2 pb-1"><h4 class="font-bold text-white text-base truncate">${esc(v.title||'NVN Music')}</h4></div></a>`;
+  const html=l.map(card).join('');g.innerHTML=`<div class="mq-track">${html}${html}</div>`;
+}
+
+/* ---------- built-in popup pickers (country + genre) ---------- */
+const cp={t:null},CHK='<svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6"/></svg>';
+const PICKS={'f-country':{list:COUNTRIES,title:'Select country',ph:'Select country',search:true},'su-country':{list:COUNTRIES,title:'Select country',ph:'Select country',search:true},'f-genre':{list:GENRES,title:'Select genre',ph:'Select genre',search:false}};
+function setPick(id,v){const c=PICKS[id],i=$('#'+id),b=$('#'+id+'-btn');if(!c||!i||!b)return;if(v==='UAE')v='United Arab Emirates';i.value=v||'';b.querySelector('.cb-label').textContent=v||c.ph;b.classList.toggle('has-val',!!v)}
+function renderPick(q){
+  q=q.trim().toLowerCase();const c=PICKS[cp.t],cur=$('#'+cp.t).value;
+  const it=x=>`<button class="cm-item${x===cur?' sel':''}" data-c="${esc(x)}" type="button"><span>${esc(x)}</span>${x===cur?CHK:''}</button>`;
+  const r=q?c.list.filter(x=>x.toLowerCase().includes(q)):c.list;
+  $('#cm-list').innerHTML=r.length?r.map(it).join(''):'<p class="cm-empty">Nothing found</p>';
+}
+function openPick(id){
+  cp.t=id;const c=PICKS[id],m=$('#country-modal'),sheet=m.querySelector('.cm-sheet');
+  $('#cm-title').textContent=c.title;$('#cm-sw').style.display=c.search?'flex':'none';sheet.classList.toggle('auto',!c.search);
+  $('#cm-search').value='';renderPick('');
+  m.classList.add('on');m.setAttribute('aria-hidden','false');document.documentElement.classList.add('lock');
+  const l=$('#cm-list');l.scrollTop=0;const sel=l.querySelector('.sel');if(sel)l.scrollTop=Math.max(0,sel.offsetTop-l.clientHeight/2+20);
+  if(c.search&&matchMedia('(hover:hover)').matches)setTimeout(()=>$('#cm-search').focus(),60);
+}
+function closePick(){const m=$('#country-modal');m.classList.remove('on');m.setAttribute('aria-hidden','true');document.documentElement.classList.remove('lock');$('#cm-search').blur()}
+function setupCountryPicker(){
+  document.querySelectorAll('.cbtn').forEach(b=>b.onclick=()=>openPick(b.dataset.target));
+  $('#cm-close').onclick=closePick;
+  $('#country-modal').onclick=e=>{if(e.target.id==='country-modal')closePick()};
+  $('#cm-list').onclick=e=>{const b=e.target.closest('.cm-item');if(!b)return;setPick(cp.t,b.dataset.c);closePick()};
+  let raf;$('#cm-search').oninput=e=>{cancelAnimationFrame(raf);const v=e.target.value;raf=requestAnimationFrame(()=>renderPick(v))};
+  addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#country-modal').classList.contains('on'))closePick()});
+}
+
+/* ---------- target release date: dd/mm/yyyy, from tomorrow up to 10 days ahead ---------- */
+const p2=n=>String(n).padStart(2,'0'),dmy=d=>p2(d.getDate())+'/'+p2(d.getMonth()+1)+'/'+d.getFullYear();
+function relRange(){const t=new Date();t.setHours(0,0,0,0);const a=new Date(t),b=new Date(t);a.setDate(a.getDate()+1);b.setDate(b.getDate()+10);return[a,b]}
+function checkRelease(v){
+  v=(v||'').trim();if(!v)return{iso:'',err:''};
+  const [a,b]=relRange(),rng=dmy(a)+' and '+dmy(b),x=v.split('/');
+  if(x.length!==3||x[0].length!==2||x[1].length!==2||x[2].length!==4||x.some(s=>/[^0-9]/.test(s)))return{err:'Release date must be in dd/mm/yyyy format, for example '+dmy(a)+'.'};
+  const d=new Date(+x[2],+x[1]-1,+x[0]);
+  if(d.getFullYear()!==+x[2]||d.getMonth()!==+x[1]-1||d.getDate()!==+x[0])return{err:'That release date does not exist. Use a date between '+rng+'.'};
+  if(d<a||d>b)return{err:'Release date must be between '+rng+'.'};
+  return{iso:x[2]+'-'+x[1]+'-'+x[0],err:''};
+}
+function refreshDateHint(){
+  const h=$('#f-date-hint');if(!h)return;const [a,b]=relRange(),r=checkRelease($('#f-date').value),bad=!!r.err&&$('#f-date').value.length===10;
+  h.textContent=bad?r.err:'Optional. Type dd/mm/yyyy, from '+dmy(a)+' to '+dmy(b)+'. The final upload date can differ and is decided by the NVN team.';
+  h.classList.toggle('text-rose-400',bad);h.classList.toggle('text-zinc-500',!bad);
+}
+function setupDate(){
+  const f=$('#f-date');
+  f.oninput=()=>{const d=f.value.replace(/[^0-9]/g,'').slice(0,8);f.value=d.slice(0,2)+(d.length>2?'/'+d.slice(2,4):'')+(d.length>4?'/'+d.slice(4):'');refreshDateHint()};
+  refreshDateHint();
+}
+
+/* ---------- submit ---------- */
+function setupSubmit(){
+  setupDate();
+  $('#su-type').innerHTML=opts(TYPES);setupCountryPicker();
+  $('#f-audio').onchange=e=>{const f=e.target.files[0];$('#audio-name').textContent=f?f.name+' ('+(f.size/1048576).toFixed(1)+' MB)':'Choose your original audio file'};
+  $('#f-cover').onchange=e=>{const f=e.target.files[0];$('#cover-name').textContent=f?f.name+' ('+(f.size/1048576).toFixed(1)+' MB)':'Cover art (optional): JPG, PNG or WebP, max 5MB'};
+}
+function prefillSubmit(){refreshDateHint();if(!$('#f-artist').value)$('#f-artist').value=profile?.full_name||'';if(profile?.country)setPick('f-country',profile.country)}
+$('#submit-form').onsubmit=async e=>{e.preventDefault();showErr('submit-error');
+  if(!$('#f-country').value)return showErr('submit-error','Please select your country.');
+  if(!$('#f-genre').value)return showErr('submit-error','Please select a genre.');
+  const rd=checkRelease($('#f-date').value);if(rd.err)return showErr('submit-error',rd.err);
+  const a=$('#f-audio').files[0],c=$('#f-cover').files[0],ext=f=>f.name.split('.').pop().toLowerCase();
+  if(!a)return showErr('submit-error','Please choose an audio file.');
+  if(!AEXT.includes(ext(a)))return showErr('submit-error','Unsupported audio format. Use MP3, WAV, FLAC, M4A, AAC or OGG.');
+  if(a.size>52428800)return showErr('submit-error','The audio file is larger than 50 MB.');
+  if(c&&(!IEXT.includes(ext(c))||c.size>5242880))return showErr('submit-error','Cover art must be JPG, PNG or WebP under 5 MB.');
+  const b=$('#submit-btn');btnBusy(b,1,'Uploading...');
+  const id=user.id+'/'+Date.now()+'-'+Math.random().toString(36).slice(2,8),ap=id+'.'+ext(a);
+  const up=await sb.storage.from('songs').upload(ap,a,{contentType:a.type||undefined});
+  if(up.error){btnBusy(b,0);return showErr('submit-error','Audio upload failed. '+fe(up.error))}
+  let cp=null;if(c){const u=await sb.storage.from('covers').upload(id+'.'+ext(c),c,{contentType:c.type||undefined});if(!u.error)cp=id+'.'+ext(c)}
+  const row={artist_name:$('#f-artist').value.trim(),country:$('#f-country').value,song_title:$('#f-title').value.trim(),genre:$('#f-genre').value,language:$('#f-lang').value.trim(),lyrics:$('#f-lyrics').value,notes:$('#f-notes').value.trim(),streaming_link:$('#f-stream').value.trim(),credits:$('#f-credits').value.trim(),audio_path:ap,audio_name:a.name,cover_path:cp};
+  if(rd.iso)row.release_date=rd.iso;
+  const{error}=await sb.from('submissions').insert(row);
+  if(error){await sb.storage.from('songs').remove([ap]);if(cp)await sb.storage.from('covers').remove([cp]);btnBusy(b,0);return showErr('submit-error',fe(error))}
+  btnBusy(b,0);e.target.reset();setPick('f-country',profile?.country||'');setPick('f-genre','');refreshDateHint();$('#audio-name').textContent='Choose your original audio file';$('#cover-name').textContent='Cover art (optional): JPG, PNG or WebP, max 5MB';
+  toast('Your song has been submitted successfully');switchSection('dashboard')};
+
+/* ---------- dashboard ---------- */
+let subs=[],dbF='all',dbQ='';
+const COL={pending:['#38bdf8','56,189,248'],in_review:['#fbbf24','251,191,36'],accepted:['#34d399','52,211,153'],declined:['#fb7185','251,113,133'],published:['#c084fc','192,132,252']};
+const isRev=x=>x.status==='pending'||x.status==='in_review';
+const isAcc=x=>x.status==='accepted'||x.status==='published';
+const ytOk=u=>/^https:\/\/(www\.|m\.|music\.)?(youtube\.com|youtu\.be)\//i.test(u||'');
+const YT_SVG='<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="display:inline-block;margin-right:6px;vertical-align:-3px"><path d="M8 5v14l11-7z"/></svg>';
+function setDbF(k){dbF=k;drawDash();const el=$('#db-chips');if(el)el.scrollIntoView({block:'nearest',behavior:'smooth'})}
+function resub(id){const x=subs.find(v=>String(v.id)===String(id));if(!x)return;switchSection('submit');
+  const set=(k,v)=>{const e=$('#'+k);if(e)e.value=v||''};
+  set('f-artist',x.artist_name);set('f-title',x.song_title);set('f-lang',x.language);set('f-lyrics',x.lyrics);set('f-notes',x.notes);set('f-stream',x.streaming_link);set('f-credits',x.credits);
+  if(x.country)setPick('f-country',x.country);if(x.genre)setPick('f-genre',x.genre);
+  toast('Details filled in. Please upload your audio again.')}
+async function renderDashboard(){
+  if(!user)return;const name=(profile?.full_name||'artist').trim();
+  $('#dash-avatar').textContent=(name[0]||'A').toUpperCase();$('#dash-title').textContent='Welcome back, '+name.split(' ')[0];
+  $('#dash-sub').textContent=[profile?.artist_type,profile?.country,user.email].filter(Boolean).join(' • ')+(profile?.created_at?' • Member since '+fmt(profile.created_at):'');
+  $('#db-alert').innerHTML=unread>0?`<button class="db-alert" onclick="switchSection('notifications')"><span><i></i>You have ${unread} unread notification${unread>1?'s':''}</span><b>View →</b></button>`:'';
+  $('#dash-list').innerHTML='<p class="text-sm text-zinc-500">Loading...</p>';
+  const{data,error}=await sb.from('submissions').select('*').eq('user_id',user.id).order('created_at',{ascending:false});
+  if(error){$('#dash-list').innerHTML=`<p class="text-sm text-rose-300">${esc(fe(error))}</p>`;return}
+  subs=data;dbF='all';dbQ='';$('#db-search').value='';
+  const n=k=>subs.filter(x=>x.status===k).length;
+  const stat=(l,v,sub,f,c)=>`<button class="db-stat" onclick="setDbF('${f}')"><span style="color:${c}">${l}</span><b style="color:${c==='#a1a1aa'?'#fff':c}">${v}</b><small>${sub}</small></button>`;
+  $('#dash-stats').innerHTML=stat('Total',subs.length,'All songs','all','#a1a1aa')+stat('In review',subs.filter(isRev).length,'Waiting for a decision','review',COL.in_review[0])+stat('Accepted',subs.filter(isAcc).length,'Approved by NVN','accepted',COL.accepted[0])+stat('Declined',n('declined'),'Read the team message','declined',COL.declined[0]);
+  drawDash();
+}
+function drawDash(){
+  const q=dbQ.trim().toLowerCase();
+  const inF=x=>dbF==='all'||(dbF==='review'?isRev(x):dbF==='accepted'?isAcc(x):x.status===dbF);
+  const cnt=f=>subs.filter(x=>f==='all'||(f==='review'?isRev(x):f==='accepted'?isAcc(x):x.status===f)).length;
+  $('#db-chips').innerHTML=[['all','All'],['review','In review'],['accepted','Accepted'],['published','Published'],['declined','Declined']].map(([k,l])=>`<button class="db-chip ${dbF===k?'on':''}" onclick="setDbF('${k}')">${l} <em>${cnt(k)}</em></button>`).join('');
+  if(!subs.length){$('#db-tools').classList.add('hidden');$('#dash-list').innerHTML='<div class="glass-card rounded-3xl p-10 text-center"><h4 class="text-lg font-bold text-white mb-1">No songs yet</h4><p class="text-sm text-zinc-400 mb-5">Submit your first song and track it here. The team replies within 3–5 days.</p><button class="btn-brand px-6 py-3 rounded-full text-white font-bold text-sm" onclick="switchSection(\'submit\')">Submit a song</button></div>';return}
+  $('#db-tools').classList.remove('hidden');
+  const list=subs.filter(x=>inF(x)&&(!q||[x.song_title,x.artist_name,x.genre].join(' ').toLowerCase().includes(q)));
+  if(!list.length){$('#dash-list').innerHTML='<div class="glass-card rounded-3xl p-8 text-center"><p class="text-sm text-zinc-400 mb-4">No songs match your filter.</p><button class="db-chip" onclick="dbQ=\'\';$(\'#db-search\').value=\'\';setDbF(\'all\')">Clear filters</button></div>';return}
+  $('#dash-list').innerHTML=list.map(x=>{
+    const t=ST[x.status],[c,rgb]=COL[x.status],step=x.status==='pending'?1:x.status==='in_review'?2:x.status==='published'?4:3,total=x.status==='declined'?3:4;
+    const stepC=i=>(i===3&&x.status==='declined')||i===4?c:'#34d399';
+    const st=(i,l)=>i>total?'':`<div class="db-step ${i<step?'done':i===step?'now':''}" style="--sc:${stepC(i)}"><i></i><span>${l}</span></div>`;
+    const day=Math.max(1,Math.floor((Date.now()-new Date(x.created_at))/864e5)+1);
+    const hint=x.status==='pending'?`In the queue. Day ${day} of the usual 3–5 day wait.`:x.status==='in_review'?`The NVN team is reviewing your song. Day ${day} of the usual 3–5 days.`:x.status==='accepted'?'Your song has been accepted. We will produce a lyric video and publish it on the channel.':x.status==='published'?`Your lyric video is live on the NVN Music YouTube channel${x.published_at?' since '+fmt(x.published_at):''}. Watch it now.`:'Not accepted this time. You can improve it and submit again.';
+    const act=x.status==='declined'?`<button class="db-btn main" onclick="resub('${x.id}')">Edit &amp; resubmit</button>`:x.status==='published'?(ytOk(x.youtube_url)?`<a class="db-btn main" href="${esc(x.youtube_url)}" rel="noopener" target="_blank">${YT_SVG}Watch on YouTube</a>`:`<a class="db-btn" href="https://www.youtube.com/@NVN_Music" rel="noopener" target="_blank">Visit the channel</a>`):x.status==='accepted'?`<a class="db-btn" href="https://www.youtube.com/@NVN_Music" rel="noopener" target="_blank">Visit the channel</a>`:'';
+    const row=(l,v)=>v?`<div><small>${l}</small><p>${v}</p></div>`:'';
+    const link=/^https?:\/\//i.test(x.streaming_link||'')?`<a class="pg-link" href="${esc(x.streaming_link)}" rel="noopener" target="_blank">Open link</a>`:'';
+    return `<div class="db-card" style="--c:${c};--cb:rgba(${rgb},.1);--cl:rgba(${rgb},.32)"><div class="db-top"><div><span class="db-pill">${t.t}</span><h4>${esc(x.song_title)}</h4><p class="db-meta">${[x.artist_name,x.genre,x.country].filter(Boolean).map(esc).join(' • ')}</p><p class="db-sub">Submitted ${fmt(x.created_at)}</p></div>${act}</div><div class="db-steps" style="grid-template-columns:repeat(${total},1fr)">${st(1,'Submitted')}${st(2,'In review')}${st(3,x.status==='declined'?'Declined':x.status==='pending'||x.status==='in_review'?'Decision':'Accepted')}${st(4,'Published')}</div><p class="db-hint">${hint}</p>${x.admin_note?`<div class="db-note"><b>Message from the NVN team</b><p>${esc(x.admin_note)}</p></div>`:''}<details class="db-det"><summary>Song details</summary><div class="db-grid">${row('Audio file',esc(x.audio_name||''))}${row('Language',esc(x.language||''))}${row('Credits',esc(x.credits||''))}${row('Streaming link',link)}${row('Your notes',esc(x.notes||''))}</div></details></div>`}).join('');
+}
+
+/* ---------- notifications ---------- */
+let nfData=[],nfF='all';
+const ago=d=>{const m=Math.floor((Date.now()-new Date(d))/6e4);if(m<1)return'Just now';if(m<60)return m+'m ago';const h=Math.floor(m/60);if(h<24)return h+'h ago';const dd=Math.floor(h/24);return dd<7?dd+'d ago':fmt(d)};
+function setNf(k){nfF=k;drawNotifs()}
+async function renderNotifications(){
+  if(!user)return;const list=$('#notif-list');list.innerHTML='<p class="text-sm text-zinc-500">Loading...</p>';
+  const{data,error}=await sb.from('notifications').select('*').order('created_at',{ascending:false}).limit(60);
+  if(error){list.innerHTML=`<p class="text-sm text-rose-300">${esc(fe(error))}</p>`;return}
+  nfData=data;unread=data.filter(x=>!x.read).length;renderHeader();$('#unread-count-badge').textContent=unread;$('#total-count-badge').textContent=data.length;drawNotifs();
+}
+function drawNotifs(){
+  const list=$('#notif-list');
+  $('#nf-tabs').innerHTML=[['all','All',nfData.length],['unread','Unread',nfData.filter(x=>!x.read).length]].map(([k,l,c])=>`<button class="db-chip ${nfF===k?'on':''}" onclick="setNf('${k}')">${l} <em>${c}</em></button>`).join('');
+  const rows=nfData.filter(x=>nfF==='all'||!x.read);
+  if(!rows.length){list.innerHTML=`<div class="glass-card rounded-3xl p-10 text-center text-sm text-zinc-400">${nfData.length?'You are all caught up. No unread notifications.':'No notifications yet. You will be notified when your song is reviewed.'}</div>`;return}
+  list.innerHTML=rows.map(x=>`<div class="nf ${x.read?'':'new'}" data-id="${x.id}" data-link="${esc(x.link)}"><i></i><div><div class="nf-top"><h4>${esc(x.title)}</h4><span>${ago(x.created_at)}</span></div><p>${esc(x.body)}</p></div></div>`).join('');
+  document.querySelectorAll('.nf').forEach(el=>el.onclick=async()=>{await sb.from('notifications').update({read:true}).eq('id',el.dataset.id);const l=el.dataset.link.replace('#/','').replace('#','');await countUnread();renderHeader();switchSection(SECTIONS.includes(l)?l:'dashboard')});
+}
+async function markAllNotificationsRead(){await sb.from('notifications').update({read:true}).eq('read',false);unread=0;renderHeader();renderNotifications();toast('All notifications marked as read')}
+
+
+/* ---------- messages (live support chat) ---------- */
+let adminBlocked=false,chMsgs=[],chSig='',chTimer=null,chBusy=false,chAgain=null,chFile=null,chAsk=null,chSending=false,chFail=0;
+const CH_MAX=10*1048576,chUrl=new Map();
+const CH_EXT={jpg:'image/jpeg',jpeg:'image/jpeg',png:'image/png',webp:'image/webp',gif:'image/gif',pdf:'application/pdf',txt:'text/plain',doc:'application/msword',docx:'application/vnd.openxmlformats-officedocument.wordprocessingml.document',xls:'application/vnd.ms-excel',xlsx:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',zip:'application/zip',mp3:'audio/mpeg',wav:'audio/wav',m4a:'audio/mp4',mp4:'video/mp4'};
+const FILE_SVG='<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>';
+const chExt=n=>(String(n).split('.').pop()||'').toLowerCase();
+const sizeFmt=n=>n<1024?n+' B':n<1048576?Math.round(n/1024)+' KB':(n/1048576).toFixed(1)+' MB';
+const seenKey=()=>'nvn_msg_seen_'+(user?user.id:'');
+function seenGet(){try{return localStorage.getItem(seenKey())||''}catch(e){return ''}}
+function seenSet(v){try{localStorage.setItem(seenKey(),v)}catch(e){}}
+function setMsgDot(on){['msg-dot','drawer-msg-dot'].forEach(i=>{const e=$('#'+i);if(e)e.classList.toggle('hidden',!on)})}
+function chLive(ok){const e=$('#ch-live');e.classList.toggle('off',!ok);e.querySelector('em').textContent=ok?'Live':'Reconnecting'}
+function openChat(){chAsk=null;fetchChat(true,true);clearInterval(chTimer);chTimer=setInterval(()=>{if(current==='messages'&&!document.hidden)fetchChat()},3000)}
+function stopChat(){clearInterval(chTimer);chTimer=null}
+document.addEventListener('visibilitychange',()=>{if(!document.hidden&&current==='messages')fetchChat()});
+async function fetchChat(force,stick){
+  if(!user)return;
+  if(chBusy){if(force)chAgain={stick};return}
+  chBusy=true;
+  const{data,error}=await sb.from('support_messages').select('*').eq('user_id',user.id).order('created_at',{ascending:false}).limit(300);
+  chBusy=false;
+  if(error){chFail++;if(chFail>=2)chLive(false);if(stick&&!chMsgs.length)$('#ch-list').innerHTML='<p class="ch-empty">Messages could not be loaded. Retrying…</p>';return}
+  chFail=0;chLive(true);
+  const rows=data.reverse(),sig=rows.map(m=>m.id+(m.deleted?'d':'')).join('|');
+  const la=[...rows].reverse().find(m=>m.sender==='admin');if(la)seenSet(la.created_at);setMsgDot(false);
+  if(sig!==chSig||force){const grew=rows.length>chMsgs.length&&chMsgs.length>0;chMsgs=rows;chSig=sig;drawChat(!!stick||rows.length===0,grew)}
+  if(chAgain){const a=chAgain;chAgain=null;fetchChat(true,a.stick)}
+}
+function drawChat(stick,grew){
+  const box=$('#ch-list'),near=box.scrollHeight-box.scrollTop-box.clientHeight<140;
+  if(!chMsgs.length){box.innerHTML='<div class="ch-empty"><b>Start a conversation</b>Ask the NVN team anything about your submissions, copyright, partnerships or your account.<div class="ch-topics"><button onclick="chTopic(\'Question about my submission: \')">My submission</button><button onclick="chTopic(\'Copyright question: \')">Copyright</button><button onclick="chTopic(\'Partnership enquiry: \')">Partnership</button><button onclick="chTopic(\'\')">Something else</button></div></div>';return}
+  let h='',day='';
+  chMsgs.forEach(m=>{
+    const d=new Date(m.created_at),dk=d.toDateString();
+    if(dk!==day){day=dk;const t=new Date().toDateString()===dk?'Today':d.toLocaleDateString([],{day:'numeric',month:'long',year:'numeric'});h+=`<div class="ch-day">${t}</div>`}
+    const me=m.sender==='user',time=d.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
+    let inner;
+    if(m.deleted)inner='<div class="ch-bub gone">This message was deleted</div>';
+    else{
+      let a='';
+      if(m.file_path){const c=chUrl.get(m.file_path),u=c&&c.exp>Date.now()?esc(c.url):'';
+        a=String(m.file_type||'').startsWith('image/')?`<a class="ch-img" data-path="${esc(m.file_path)}" href="${u||'#'}" target="_blank" rel="noopener"><img data-path="${esc(m.file_path)}" ${u?`src="${u}"`:''} alt="${esc(m.file_name)}" loading="lazy"/></a>`
+        :`<a class="ch-file" data-path="${esc(m.file_path)}" href="${u||'#'}" target="_blank" rel="noopener"><span class="ch-fi">${FILE_SVG}</span><span><b>${esc(m.file_name)}</b><small>${sizeFmt(m.file_size||0)}</small></span></a>`}
+      inner=`<div class="ch-bub">${m.body?`<div class="ch-t">${esc(m.body)}</div>`:''}${a}</div>`}
+    const ctl=me&&!m.deleted?(chAsk===m.id?`<span class="ch-ask">Delete this message? <button onclick="chDel('${m.id}')">Delete</button><button onclick="chCancel()">Cancel</button></span>`:`<button class="ch-x" onclick="chAskDel('${m.id}')">Delete</button>`):'';
+    h+=`<div class="ch-row ${me?'me':'them'}">${me?'':'<span class="ch-who">NVN Team</span>'}${inner}<div class="ch-meta"><span>${time}</span>${ctl}</div></div>`});
+  box.innerHTML=h;hydrate();
+  if(stick||near){box.scrollTop=box.scrollHeight;$('#ch-new').classList.add('hidden')}else if(grew)$('#ch-new').classList.remove('hidden');
+}
+function chScroll(){const b=$('#ch-list');b.scrollTop=b.scrollHeight;$('#ch-new').classList.add('hidden')}
+$('#ch-list').addEventListener('scroll',e=>{const b=e.target;if(b.scrollHeight-b.scrollTop-b.clientHeight<60)$('#ch-new').classList.add('hidden')});
+async function hydrate(){
+  const els=[...document.querySelectorAll('#ch-list [data-path]')];
+  const need=[...new Set(els.map(e=>e.dataset.path))].filter(x=>{const c=chUrl.get(x);return !c||c.exp<Date.now()});
+  if(need.length){const{data}=await sb.storage.from('chat-files').createSignedUrls(need,3600);(data||[]).forEach(d=>{if(d.signedUrl)chUrl.set(d.path,{url:d.signedUrl,exp:Date.now()+3300e3})})}
+  els.forEach(e=>{const c=chUrl.get(e.dataset.path);if(!c)return;if(e.tagName==='IMG')e.src=c.url;else e.href=c.url})
+}
+function chTopic(t){const ta=$('#ch-in');ta.value=t;ta.focus();chSize()}
+function chAskDel(id){chAsk=id;drawChat(false,false)}
+function chCancel(){chAsk=null;drawChat(false,false)}
+async function chDel(id){
+  const{data,error}=await sb.rpc('delete_support_message',{p_id:id});chAsk=null;
+  if(error){toast('The message could not be deleted. Please try again.');drawChat(false,false);return}
+  if(data){chUrl.delete(data);await sb.storage.from('chat-files').remove([data])}
+  fetchChat(true,false);toast('Message deleted');
+}
+function drawAtt(){
+  const a=$('#ch-att');if(!chFile){a.classList.add('hidden');a.innerHTML='';return}
+  const img=chFile.type.startsWith('image/')||['jpg','jpeg','png','webp','gif'].includes(chExt(chFile.name));
+  a.classList.remove('hidden');
+  a.innerHTML=(img?`<img alt="" src="${URL.createObjectURL(chFile)}"/>`:`<span class="ch-fi">${FILE_SVG}</span>`)+`<span><b>${esc(chFile.name)}</b><small>${sizeFmt(chFile.size)}</small></span><button aria-label="Remove attachment" onclick="chFile=null;drawAtt()">&times;</button>`;
+}
+$('#ch-file').onchange=e=>{const f=e.target.files[0];e.target.value='';if(!f)return;if(!CH_EXT[chExt(f.name)])return toast('This file type is not supported.');if(f.size>CH_MAX)return toast('Files must be 10 MB or smaller.');chFile=f;drawAtt()};
+function chSize(){const t=$('#ch-in');t.style.height='auto';t.style.height=Math.min(t.scrollHeight,140)+'px'}
+$('#ch-in').addEventListener('input',chSize);
+$('#ch-in').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey&&matchMedia('(hover:hover)').matches){e.preventDefault();chSend()}});
+async function chSend(){
+  if(chSending||!user)return;const ta=$('#ch-in'),text=ta.value.trim();if(!text&&!chFile)return;
+  chSending=true;$('#ch-send').disabled=true;let fp=null,meta={};
+  try{
+    if(chFile){const ext=chExt(chFile.name);fp=user.id+'/'+Date.now()+'-'+Math.random().toString(36).slice(2,8)+'.'+ext;$('#ch-att').classList.add('up');
+      const up=await sb.storage.from('chat-files').upload(fp,chFile,{contentType:CH_EXT[ext],upsert:false});if(up.error)throw up.error;
+      meta={file_path:fp,file_name:chFile.name.slice(0,200),file_type:CH_EXT[ext],file_size:chFile.size}}
+    const{error}=await sb.from('support_messages').insert({user_id:user.id,sender:'user',body:text,...meta});
+    if(error){if(fp)await sb.storage.from('chat-files').remove([fp]);throw error}
+    ta.value='';chSize();chFile=null;drawAtt();await fetchChat(true,true);
+  }catch(e){toast('Your message could not be sent. Please check your connection and try again.')}
+  chSending=false;$('#ch-send').disabled=false;$('#ch-att').classList.remove('up');
+}
+async function msgBg(){
+  if(!user||document.hidden||current==='messages')return;
+  const{data}=await sb.from('support_messages').select('created_at').eq('user_id',user.id).eq('sender','admin').order('created_at',{ascending:false}).limit(1);
+  const l=data&&data[0];setMsgDot(!!l&&l.created_at>seenGet());
+}
+setInterval(msgBg,20000);
+
+/* ---------- init ---------- */
+$('#year').textContent=new Date().getFullYear();
+setupSubmit();loadGallery();
+loadSession().then(()=>{if(adminBlocked){adminBlocked=false;toast('This account is reserved for the NVN administration panel. Please log in with an artist account.')}const h=location.hash.slice(1);switchSection(SECTIONS.includes(h)?h:'home',true)});
+sb.auth.onAuthStateChange(ev=>{if(ev==='SIGNED_OUT'){user=null;profile=null;renderHeader()}});
+</script>
+</body>
+</html>
