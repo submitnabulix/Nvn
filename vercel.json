@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/image/:code", "destination": "/index.html" }
+  ]
+}
