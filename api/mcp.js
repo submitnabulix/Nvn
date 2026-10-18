@@ -406,4 +406,84 @@ tool('analytics_summary', 'Admin: page view analytics for the last N days (top p
     };
   }, { admin: true });
 
-tool('recent_app_errors', 'Admin: most recent client-side
+tool('recent_app_errors', 'Admin: most recent client-side errors logged by the app.',
+  { limit: { type: 'integer', description: '1-50, default 20' } }, [],
+  async (a) => {
+    const rows = await sb('app_errors', { admin: true, order: 'created_at.desc', limit: clamp(a.limit, 1, 50, 20) });
+    return { count: rows.length, errors: rows };
+  }, { admin: true });
+
+tool('list_hidden_verses', 'Admin: list hidden verses.',
+  { limit: { type: 'integer', description: '1-50, default 20' } }, [],
+  async (a) => {
+    const rows = await sb('verses', { admin: true, filters: [['is_hidden', 'eq.true']], order: 'upload_date.desc', limit: clamp(a.limit, 1, 50, 20) });
+    return { count: rows.length, verses: rows.map(verse) };
+  }, { admin: true });
+
+const visibleTools = () => TOOLS.filter((t) => !t.admin || ADMIN);
+
+// ---------- JSON-RPC over HTTP ----------
+
+module.exports = async (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, Mcp-Session-Id, MCP-Protocol-Version');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
+
+  if (req.method === 'OPTIONS') return res.status(204).end();
+
+  if (SECRET) {
+    const given = (req.query && req.query.key) || String(req.headers.authorization || '').replace(/^Bearer\s+/i, '');
+    if (!safeEqual(given, SECRET)) return res.status(401).json({ error: 'Unauthorized' });
+  }
+
+  if (req.method !== 'POST') {
+    res.setHeader('Allow', 'POST');
+    return res.status(405).json({ error: 'Use POST' });
+  }
+
+  let body = req.body;
+  if (typeof body === 'string') { try { body = JSON.parse(body); } catch (e) { body = null; } }
+  if (!body || typeof body !== 'object') {
+    return res.status(400).json({ jsonrpc: '2.0', id: null, error: { code: -32700, message: 'Parse error' } });
+  }
+
+  const { id, method, params } = body;
+  if (id === undefined || id === null) return res.status(202).end(); // notification
+
+  const ok = (result) => res.status(200).json({ jsonrpc: '2.0', id, result });
+  const fail = (code, message) => res.status(200).json({ jsonrpc: '2.0', id, error: { code, message } });
+
+  switch (method) {
+    case 'initialize':
+      return ok({
+        protocolVersion: (params && params.protocolVersion) || '2025-03-26',
+        capabilities: { tools: {} },
+        serverInfo: SERVER_INFO,
+      });
+
+    case 'ping':
+      return ok({});
+
+    case 'tools/list':
+      return ok({
+        tools: visibleTools().map((t) => ({
+          name: t.name, description: t.description, inputSchema: t.inputSchema,
+          annotations: { readOnlyHint: true, openWorldHint: false },
+        })),
+      });
+
+    case 'tools/call': {
+      const t = visibleTools().find((x) => x.name === (params && params.name));
+      if (!t) return fail(-32602, 'Unknown tool');
+      try {
+        const out = await t.run((params && params.arguments) || {}, req);
+        return ok({ content: [{ type: 'text', text: JSON.stringify(out) }] });
+      } catch (e) {
+        return ok({ content: [{ type: 'text', text: `Error: ${e.message}` }], isError: true });
+      }
+    }
+
+    default:
+      return fail(-32601, 'Method not found');
+  }
+};
